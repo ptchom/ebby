@@ -1,8 +1,8 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { calculateEndkapital } from "~/rechner/zinsrechner-form/claculate";
 import { Tooltip } from "~/components/forms/tooltip";
-import { PDFViewer } from "@react-pdf/renderer";
-import { MyDocument } from "~/shared/pdf/my-document";
+import { pdf, View, Text } from "@react-pdf/renderer";
+import { PdfDocument } from "~/shared/pdf/pdf-document";
 
 export const ZinsrechnerForm = () => {
   const [anfangskapital, setAnfangskapital] = useState<number>(1000);
@@ -13,9 +13,19 @@ export const ZinsrechnerForm = () => {
   const [endkapital, setEndkapital] = useState<string>("");
   const btnClas =
     "bg-blue-500 hover:bg-blue-700 active:bg-blue-900 text-white font-bold py-1 px-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50";
-  const [showPdf, setShowPdf] = useState(false);
-  const generatePdf = () => {
-    setShowPdf((prevState) => !prevState);
+  const MyTable = () => (
+    <View>
+      <Text>Cell 1</Text>
+      <Text>Cell 2</Text>
+      {/* и так далее */}
+    </View>
+  );
+
+  const downloadPdf = async () => {
+    const pdfDoc = pdf(<PdfDocument content={<MyTable />} />); // создаем документ
+    const blob = await pdfDoc.toBlob(); // получаем Blob
+    // создаем Blob URL и открываем его в новом окне
+    window.open(URL.createObjectURL(blob), "_blank");
   };
   useEffect(() => {
     const newEndkapital = calculateEndkapital(
@@ -147,18 +157,11 @@ export const ZinsrechnerForm = () => {
           <span className="border-r border-gray-500 font-bold">?</span>
         </fieldset>
         <fieldset>
-          <button className={btnClas} onClick={generatePdf}>
+          <button className={btnClas} onClick={downloadPdf}>
             Generate PDF
           </button>
         </fieldset>
       </form>
-      <div>
-        {showPdf && (
-          <PDFViewer width="600" height="800">
-            <MyDocument />
-          </PDFViewer>
-        )}
-      </div>
     </div>
   );
 };
