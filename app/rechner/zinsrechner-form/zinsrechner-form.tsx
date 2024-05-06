@@ -1,18 +1,29 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { calculateEndkapital } from "~/rechner/zinsrechner-form/claculate";
 import { Tooltip } from "~/components/forms/tooltip";
 import { pdf, View, Text } from "@react-pdf/renderer";
 import { PdfDocument } from "~/shared/pdf/pdf-document";
 
 export const ZinsrechnerForm = () => {
-  const [anfangskapital, setAnfangskapital] = useState<number>(1000);
-  const [zinssatz, setZinssatz] = useState<number>(1.23);
-  const [laufzeit, setLaufzeit] = useState<number>(3);
-  const [laufzeitUnit, setLaufzeitUnit] = useState("jahre"); // Новое состояние
-  const [zinseszins, setZinseszins] = useState<boolean>(true); // Новое состояние
-  const [endkapital, setEndkapital] = useState<string>("");
-  const btnClas =
+  const [initialCapital, setInitialCapital] = useState<number>(1000);
+  const [interestRate, setInterestRate] = useState<number>(1.23);
+  const [duration, setDuration] = useState<number>(3);
+  const [durationUnit, setDurationUnit] = useState("jahre"); // Новое состояние
+  const [compoundInterest, setCompoundInterest] = useState<boolean>(true); // Новое состояние
+  const [finalCapital, setFinalCapital] = useState<string>("");
+  const buttonClass =
     "bg-blue-500 hover:bg-blue-700 active:bg-blue-900 text-white font-bold py-1 px-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50";
+  const calculateAndSetFinalCapital = () => {
+    const newFinalCapital = calculateEndkapital(
+      initialCapital,
+      interestRate,
+      duration,
+      durationUnit,
+      compoundInterest
+    );
+    setFinalCapital(newFinalCapital);
+  };
+
   const MyTable = () => (
     <View>
       <Text>Cell 1</Text>
@@ -21,22 +32,12 @@ export const ZinsrechnerForm = () => {
     </View>
   );
 
-  const downloadPdf = async () => {
-    const pdfDoc = pdf(<PdfDocument content={<MyTable />} />); // создаем документ
-    const blob = await pdfDoc.toBlob(); // получаем Blob
-    // создаем Blob URL и открываем его в новом окне
+  const downloadPdf = async (): Promise<void> => {
+    const PdfDoc = () => <PdfDocument content={<MyTable />} />;
+    const pdfDoc = pdf(<PdfDoc />);
+    const blob: Blob = await pdfDoc.toBlob();
     window.open(URL.createObjectURL(blob), "_blank");
   };
-  useEffect(() => {
-    const newEndkapital = calculateEndkapital(
-      anfangskapital,
-      zinssatz,
-      laufzeit,
-      laufzeitUnit,
-      zinseszins
-    );
-    setEndkapital(newEndkapital);
-  }, [anfangskapital, laufzeit, zinssatz, laufzeitUnit, zinseszins]);
 
   const handleChange = (
     changeEvent: ChangeEvent<
@@ -44,25 +45,27 @@ export const ZinsrechnerForm = () => {
     >
   ) => {
     if (changeEvent.target.name === "anfangskapital") {
-      setAnfangskapital(Number(changeEvent.target.value));
+      setInitialCapital(Number(changeEvent.target.value));
     } else if (changeEvent.target.name === "zinssatz") {
-      setZinssatz(Number(changeEvent.target.value));
+      setInterestRate(Number(changeEvent.target.value));
     } else if (changeEvent.target.name === "laufzeit") {
-      setLaufzeit(Number(changeEvent.target.value));
+      setDuration(Number(changeEvent.target.value));
     } else if (changeEvent.target.name === "laufzeitUnit") {
-      setLaufzeitUnit(changeEvent.target.value);
+      setDurationUnit(changeEvent.target.value);
     } else if (changeEvent.currentTarget.name === "janeinzinsansammlung") {
-      setZinseszins(changeEvent.currentTarget.value === "Ja, Zinsansammlung");
+      setCompoundInterest(
+        changeEvent.currentTarget.value === "Ja, Zinsansammlung"
+      );
     }
   };
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    // ...дальнейшие действия
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    calculateAndSetFinalCapital();
   };
   return (
     <div className="my-5 p-2 rounded border border-amber-200">
       <form className="flex max-w-md flex-col gap-4" onSubmit={handleSubmit}>
-        <h3>Zinsrechner</h3>
+        <h4>ZinsrechnerForm</h4>
         {/*  First line anfangskapital*/}
         <fieldset className="flex gap-4 rounded border border-red-500 p-1 m-1">
           <label htmlFor="anfangskapital" className="border-r border-gray-500">
@@ -71,7 +74,7 @@ export const ZinsrechnerForm = () => {
           <input
             name="anfangskapital"
             type="number"
-            defaultValue={anfangskapital}
+            defaultValue={initialCapital}
             onChange={handleChange}
             className="border-r border-gray-500"
           />
@@ -87,7 +90,7 @@ export const ZinsrechnerForm = () => {
             name="zinssatz"
             type="number"
             step="0.001"
-            defaultValue={zinssatz}
+            defaultValue={interestRate}
             onChange={handleChange}
             className="border-r border-gray-500"
           />
@@ -102,7 +105,7 @@ export const ZinsrechnerForm = () => {
           <input
             name="laufzeit"
             type="number"
-            defaultValue={laufzeit}
+            defaultValue={duration}
             onChange={handleChange}
             className="border-r border-gray-500"
           />
@@ -113,20 +116,6 @@ export const ZinsrechnerForm = () => {
             </select>
           </span>
           <span className="border-r border-gray-500 font-bold">?</span>
-        </fieldset>
-        {/*Endkapital*/}
-        <fieldset className="flex gap-4 rounded border border-red-500 p-1 m-1">
-          <label htmlFor="endkapital" className="border-r border-gray-500">
-            Endkapital
-          </label>
-          <input
-            name="endkapital"
-            defaultValue={endkapital}
-            type="number"
-            className="border-r border-gray-500"
-          />
-          <span className="border-r border-gray-500">€</span>
-          <Tooltip highlight="?" text="endkapital erklärung" />
         </fieldset>
         {/*Zinseszins*/}
         <fieldset className="flex gap-4 rounded border border-red-500 p-1 m-1">
@@ -140,7 +129,7 @@ export const ZinsrechnerForm = () => {
               name="janeinzinsansammlung"
               value="Ja, Zinsansammlung"
               onChange={handleChange}
-              checked={zinseszins}
+              checked={compoundInterest}
             />
             <label htmlFor="ja">Ja</label>
             <input
@@ -149,15 +138,32 @@ export const ZinsrechnerForm = () => {
               name="janeinzinsansammlung"
               value="Nein, Zinsauszahlung"
               onChange={handleChange}
-              checked={!zinseszins}
+              checked={!compoundInterest}
             />
             <label htmlFor="nein">Nein</label>
           </div>
           <span id="placeholder"></span>
           <span className="border-r border-gray-500 font-bold">?</span>
         </fieldset>
-        <fieldset>
-          <button className={btnClas} onClick={downloadPdf}>
+        {/*Endkapital*/}
+        <fieldset className="flex gap-4 rounded border border-red-500 p-1 m-1">
+          <label htmlFor="endkapital" className="border-r border-gray-500">
+            Endkapital
+          </label>
+          <input
+            name="endkapital"
+            defaultValue={finalCapital}
+            type="number"
+            className="border-r border-gray-500 font-bold text-2xl"
+          />
+          <span className="border-r border-gray-500">€</span>
+          <Tooltip highlight="?" text="endkapital erklärung" />
+        </fieldset>
+        <fieldset className="flex gap-10">
+          <button className={buttonClass} type="submit">
+            Rechnen
+          </button>
+          <button className={buttonClass} onClick={downloadPdf}>
             Generate PDF
           </button>
         </fieldset>
