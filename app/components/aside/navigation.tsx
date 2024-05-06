@@ -18,19 +18,24 @@ export const Navigation = (): ReactElement => {
       <ul>
         {menu}
         <hr className="border-black border-t opacity-50 my-4" />
-        {/*  <li>*/}
-        {/*    <Link to="/example-rechner-layout" className={linkClass}>*/}
-        {/*      Example rechner layout*/}
-        {/*    </Link>*/}
-        {/*  </li>*/}
-        {/*  <hr className="border-red-500 border-t-2 my-4" />*/}
-
-        {/*  <li>*/}
-        {/*    <Link to="/example-second-layout" className={linkClass}>*/}
-        {/*      Example second layout*/}
-        {/*    </Link>*/}
-        {/*  </li>*/}
-        {/*  <hr className="border-black border-t opacity-50 my-4" />*/}
+        <li>
+          <Link to="/example-rechner-layout" className={linkClass}>
+            Example rechner layout
+          </Link>
+        </li>
+        <hr className="border-red-500 border-t-2 my-4" />
+        <li>
+          <Link to="/example-second-layout" className={linkClass}>
+            Example second layout
+          </Link>
+        </li>
+        <hr className="border-black border-t opacity-50 my-4" />{" "}
+        <li>
+          <Link to="/contact" className={linkClass}>
+            contact
+          </Link>
+        </li>
+        <hr className="border-black border-t opacity-50 my-4" />
       </ul>
     </nav>
   );
