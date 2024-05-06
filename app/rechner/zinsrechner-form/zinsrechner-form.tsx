@@ -1,6 +1,8 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { calculateEndkapital } from "~/rechner/zinsrechner-form/claculate";
 import { Tooltip } from "~/components/forms/tooltip";
+import { PDFViewer } from "@react-pdf/renderer";
+import { MyDocument } from "~/shared/pdf/my-document";
 
 export const ZinsrechnerForm = () => {
   const [anfangskapital, setAnfangskapital] = useState<number>(1000);
@@ -9,7 +11,12 @@ export const ZinsrechnerForm = () => {
   const [laufzeitUnit, setLaufzeitUnit] = useState("jahre"); // Новое состояние
   const [zinseszins, setZinseszins] = useState<boolean>(true); // Новое состояние
   const [endkapital, setEndkapital] = useState<string>("");
-
+  const btnClas =
+    "bg-blue-500 hover:bg-blue-700 active:bg-blue-900 text-white font-bold py-1 px-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50";
+  const [showPdf, setShowPdf] = useState(false);
+  const generatePdf = () => {
+    setShowPdf((prevState) => !prevState);
+  };
   useEffect(() => {
     const newEndkapital = calculateEndkapital(
       anfangskapital,
@@ -140,14 +147,18 @@ export const ZinsrechnerForm = () => {
           <span className="border-r border-gray-500 font-bold">?</span>
         </fieldset>
         <fieldset>
-          <button
-            type="submit"
-            className="bg-blue-500 hover:bg-blue-700 active:bg-blue-900 text-white font-bold py-1 px-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50"
-          >
-            PDF generieren
+          <button className={btnClas} onClick={generatePdf}>
+            Generate PDF
           </button>
         </fieldset>
       </form>
+      <div>
+        {showPdf && (
+          <PDFViewer width="600" height="800">
+            <MyDocument />
+          </PDFViewer>
+        )}
+      </div>
     </div>
   );
 };
