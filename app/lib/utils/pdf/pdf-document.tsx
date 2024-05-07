@@ -1,5 +1,5 @@
 import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
-import { ZinsrechnerPdfData } from "~/ui/rechner/zinsrechner-form/type";
+import { ZinsrechnerUserData } from "~/ui/rechner/zinsrechner-form/type";
 
 const styles = StyleSheet.create({
   page: {
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
 
 const debug =
   "Derzeit funktioniert die PDF-Generierungsfunktion nicht. Wir sind uns dieses Problems bewusst und arbeiten aktiv daran, es so schnell wie möglich zu beheben. Wir danken Ihnen für Ihr Verständnis und Ihre Geduld.";
-export const PdfDocument = ({ content }: { content: ZinsrechnerPdfData }) => {
+export const PdfDocument = ({ content }: { content: ZinsrechnerUserData }) => {
   if (!content) {
     return null; // или верните индикатор загрузки, если вам это нужно
   }

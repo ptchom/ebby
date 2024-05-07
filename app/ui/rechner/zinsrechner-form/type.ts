@@ -1,4 +1,4 @@
-export type ZinsrechnerPdfData = {
+export type ZinsrechnerUserData = {
   initialCapital: number;
   interestRate: number;
   duration: number;

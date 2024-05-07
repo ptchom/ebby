@@ -6,7 +6,7 @@
     body {
         @apply mx-auto max-w-big ;
         @apply bg-svg-background bg-svg-pattern-topography;
-        @apply text-xl;
+        /*@apply text-xl;*/
         @apply flex flex-col md:grid md:grid-cols-12 md:gap-1 md:min-h-dvh md:grid-rows-[auto,1fr,auto] lg:gap-2 xl:gap-3 2xl:gap-4;
         font-family: "system-ui, sans-serif", serif;
     }
@@ -20,7 +20,7 @@
     }
 
     h2 {
-        @apply text-3xl xl:text-4xl;
+        @apply text-3xl xl:text-3xl;
     }
 
     h3, h4, h5, h6 {
@@ -32,7 +32,7 @@
     }
 
     main {
-        @apply p-5
+        @apply p-2 md:p-5;
     }
 
     aside {
@@ -40,11 +40,11 @@
     }
 
     li, a {
-        @apply break-words;
+        @apply break-words lg:text-xl;
     }
 
     footer {
-        @apply p-5;
+        @apply p-2 md:p-5;
     }
 
     p {

@@ -3,7 +3,7 @@ import { Tooltip } from "~/ui/components/forms/tooltip";
 import { pdf } from "@react-pdf/renderer";
 import { PdfDocument } from "~/lib/utils/pdf/pdf-document";
 import { calculateEndkapital } from "~/lib/rechner/zinsrechner/calculate-zins";
-import { ZinsrechnerPdfData } from "./type";
+import { ZinsrechnerUserData } from "./type";
 
 export const ZinsrechnerForm = () => {
   const [initialCapital, setInitialCapital] = useState<number>(1000);
@@ -12,28 +12,22 @@ export const ZinsrechnerForm = () => {
   const [durationUnit, setDurationUnit] = useState("jahre"); // Новое состояние
   const [compoundInterest, setCompoundInterest] = useState<boolean>(true); // Новое состояние
   const [finalCapital, setFinalCapital] = useState<string>("");
-  const calculateAndSetFinalCapital = () => {
-    const newFinalCapital = calculateEndkapital(
-      initialCapital,
-      interestRate,
-      duration,
-      durationUnit,
-      compoundInterest
-    );
-    setFinalCapital(newFinalCapital);
-  };
 
-  const pdfData: ZinsrechnerPdfData = {
+  const userData: ZinsrechnerUserData = {
     initialCapital: initialCapital,
     interestRate: interestRate,
     duration: duration,
     durationUnit: durationUnit,
     compoundInterest: compoundInterest,
   };
+  const calculateAndSetFinalCapital = () => {
+    const newFinalCapital = calculateEndkapital(userData);
+    setFinalCapital(newFinalCapital);
+  };
 
   const downloadPdf = async (): Promise<void> => {
-    console.log({ pdfData });
-    const pdfDoc = pdf(<PdfDocument content={pdfData} />);
+    console.log({ pdfData: userData });
+    const pdfDoc = pdf(<PdfDocument content={userData} />);
     const blob: Blob = await pdfDoc.toBlob();
     window.open(URL.createObjectURL(blob), "_blank");
   };
@@ -67,7 +61,7 @@ export const ZinsrechnerForm = () => {
       <form
         onSubmit={handleSubmit}
         // className="flex flex-col justify-start gap-5"
-        className="flex flex-col sm:grid sm:grid-cols-3 gap-5"
+        className="flex flex-col sm:grid sm:grid-cols-3 gap-2 md:gap-5  "
       >
         {/*  First line anfangskapital*/}
         <div className="flex gap-0.5">
@@ -175,7 +169,7 @@ export const ZinsrechnerForm = () => {
             name="endkapital"
             defaultValue={finalCapital}
             type="number"
-            className="border rounded-md text-right font-bold text-2xl w-48"
+            className="border rounded-md text-right text-teal-700 font-bold text-3xl w-48"
           />
           <span>€</span>
         </div>
@@ -188,6 +182,8 @@ export const ZinsrechnerForm = () => {
           </button>
         </div>
       </form>
+
+      {/*<ZinsrechnerTable {...userData} />*/}
     </div>
   );
 };
