@@ -1,5 +1,4 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import { Tooltip } from "~/ui/components/forms/tooltip";
 import { pdf } from "@react-pdf/renderer";
 import { PdfDocument } from "~/lib/utils/pdf/pdf-document";
 import { calculateEndkapital } from "~/lib/rechner/zinsrechner/calculate-zins";
