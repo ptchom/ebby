@@ -11,7 +11,7 @@ import stylesheet from "~/tailwind.css?url";
 import { Header } from "~/components/header";
 import { Aside } from "~/components/aside";
 import { Footer } from "~/components/footer";
-import GoogleAnalytics from "~/utils/gtags.client";
+import { googleTagManager } from "~/shared/config";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
@@ -19,13 +19,12 @@ export const links: LinksFunction = () => [
 
 export function Layout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="de">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
-        {/*<GoogleAnalytics />*/}
       </head>
       <body>
         <header className="col-span-12 xl:col-start-3 xl:col-span-8">
@@ -42,6 +41,29 @@ export function Layout({ children }: { children: ReactNode }) {
         </footer>
         <ScrollRestoration />
         <Scripts />
+        {
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${googleTagManager}`}
+            />
+            <script
+              async
+              id="gtag-init"
+              dangerouslySetInnerHTML={{
+                __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', '${googleTagManager}', {
+                  page_path: window.location.pathname,
+                });
+              `,
+              }}
+            />
+          </>
+        }
       </body>
     </html>
   );
