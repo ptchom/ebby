@@ -19,18 +19,26 @@ export const PdfDocument = ({ content }: { content: ZinsrechnerPdfData }) => {
   if (!content) {
     return null; // или верните индикатор загрузки, если вам это нужно
   }
-  const { test1, test2 } = content;
+  const {
+    initialCapital,
+    interestRate,
+    duration,
+    durationUnit,
+    compoundInterest,
+  } = content;
   return (
     <Document>
       <Page size="A4" style={styles.page}>
         <View style={styles.section}>
           <Text>eb.by - ZinsrechnerForm</Text>
           <Text>{debug}</Text>
-          <Text>{test1}</Text>
         </View>
         <View style={styles.section}>
-          <Text>{test1}</Text>
-          <Text>{test2}</Text>
+          <Text>Anfangskapital: {initialCapital}</Text>
+          <Text>Zinssatz: {interestRate}</Text>
+          <Text>Laufzeit: {duration}</Text>
+          <Text>LaufzeitUnit: {durationUnit}</Text>
+          <Text>Zinseszins: {compoundInterest ? "ja" : "nein"}</Text>
         </View>
       </Page>
     </Document>

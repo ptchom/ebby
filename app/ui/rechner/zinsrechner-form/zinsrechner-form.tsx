@@ -3,12 +3,12 @@ import { Tooltip } from "~/ui/components/forms/tooltip";
 import { pdf } from "@react-pdf/renderer";
 import { PdfDocument } from "~/lib/utils/pdf/pdf-document";
 import { calculateEndkapital } from "~/lib/rechner/zinsrechner/calculate-zins";
-import { ZinsrechnerPdfData } from "~/ui/rechner/zinsrechner-form/type";
+import { ZinsrechnerPdfData } from "./type";
 
 export const ZinsrechnerForm = () => {
   const [initialCapital, setInitialCapital] = useState<number>(1000);
-  const [interestRate, setInterestRate] = useState<number>(1.23);
-  const [duration, setDuration] = useState<number>(3);
+  const [interestRate, setInterestRate] = useState<number>(3.79);
+  const [duration, setDuration] = useState<number>(10);
   const [durationUnit, setDurationUnit] = useState("jahre"); // Новое состояние
   const [compoundInterest, setCompoundInterest] = useState<boolean>(true); // Новое состояние
   const [finalCapital, setFinalCapital] = useState<string>("");
@@ -24,8 +24,11 @@ export const ZinsrechnerForm = () => {
   };
 
   const pdfData: ZinsrechnerPdfData = {
-    test1: "Zinsrechner",
-    test2: "Form",
+    initialCapital: initialCapital,
+    interestRate: interestRate,
+    duration: duration,
+    durationUnit: durationUnit,
+    compoundInterest: compoundInterest,
   };
 
   const downloadPdf = async (): Promise<void> => {
@@ -60,139 +63,130 @@ export const ZinsrechnerForm = () => {
   };
   return (
     <div className="mx-auto mb-5 bg-opacity-5 p-5 rounded-lg shadow-xl text-2xl">
+      <h4 className="text-center">ZinsrechnerForm</h4>
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col justify-start gap-5"
+        // className="flex flex-col justify-start gap-5"
+        className="flex flex-col md:grid md:grid-cols-3 gap-5"
       >
-        <h4 className="text-center">ZinsrechnerForm</h4>
         {/*  First line anfangskapital*/}
-        <fieldset className="flex justify-start gap-5">
-          <div className="flex gap-0.5 min-w-max">
-            <label htmlFor="anfangskapital" className="inline-block">
-              Anfangskapital
-            </label>
-            <Tooltip highlight="?" text="Anfangskapital erklärung" />
-          </div>
-          <div className="flex gap-0.5">
-            <input
-              name="anfangskapital"
-              type="number"
-              defaultValue={initialCapital}
-              onChange={handleChange}
-              className="w-fit border rounded-md text-right"
-            />
-            <span className="font-semibold">€</span>
-          </div>
-        </fieldset>
+        <div className="flex gap-0.5">
+          <label htmlFor="anfangskapital" className="inline-block">
+            Anfangskapital
+          </label>
+          <Tooltip highlight="?" text="Anfangskapital erklärung" />
+        </div>
+        <div className="flex gap-0.5 col-span-2">
+          <input
+            name="anfangskapital"
+            type="number"
+            defaultValue={initialCapital}
+            onChange={handleChange}
+            className="w-fit border rounded-md text-right"
+          />
+          <span className="font-semibold">€</span>
+        </div>
         {/*Zinssatz*/}
-        <fieldset className="flex justify-start gap-5">
-          <div className="flex gap-0.5">
-            <label htmlFor="zinssatz" className="inline-block">
-              Zinssatz
-            </label>
-            <Tooltip highlight="?" text="Zinssatz erklärung" />
-          </div>
-          <div className="flex gap-0.5">
-            <input
-              name="zinssatz"
-              type="number"
-              step="0.001"
-              defaultValue={interestRate}
-              onChange={handleChange}
-              className="w-fit border rounded-md text-right"
-            />
-            <span className="font-semibold">% p.a.</span>
-          </div>
-        </fieldset>{" "}
+        <div className="flex gap-0.5">
+          <label htmlFor="zinssatz" className="inline-block">
+            Zinssatz
+          </label>
+          <Tooltip highlight="?" text="Zinssatz erklärung" />
+        </div>
+        <div className="flex gap-0.5 col-span-2">
+          <input
+            name="zinssatz"
+            type="number"
+            step="0.001"
+            defaultValue={interestRate}
+            onChange={handleChange}
+            className="w-fit border rounded-md text-right"
+          />
+          <span className="font-semibold">% p.a.</span>
+        </div>
         {/*Laufzeit*/}
-        <fieldset className="flex justify-start gap-5">
-          <div className="flex gap-0.5">
-            <label htmlFor="laufzeit" className="inline-block">
-              Laufzeit
-            </label>
-            <Tooltip highlight="?" text="Laufzeit erklärung" />
-          </div>
-          <div className="flex gap-0.5">
-            <input
-              name="laufzeit"
-              type="number"
-              defaultValue={duration}
-              onChange={handleChange}
-              className="w-fit border rounded-md text-right"
-            />
-            <select
-              id="laufzeit"
-              name="laufzeitUnit"
-              onChange={handleChange}
-              className="border rounded-md outline-none px-3 bg-white text-gray-800"
-            >
-              <option value="jahre">Jahre</option>
-              <option value="monate">Monate</option>
-            </select>
-          </div>
-        </fieldset>
+        <div className="flex gap-0.5">
+          <label htmlFor="laufzeit" className="inline-block">
+            Laufzeit
+          </label>
+          <Tooltip highlight="?" text="Laufzeit erklärung" />
+        </div>
+        <div className="flex gap-0.5 col-span-2">
+          <input
+            name="laufzeit"
+            type="number"
+            defaultValue={duration}
+            onChange={handleChange}
+            className="w-fit border rounded-md text-right"
+          />
+          <select
+            id="laufzeit"
+            name="laufzeitUnit"
+            onChange={handleChange}
+            className="border rounded-md outline-none px-3 bg-white text-gray-800"
+          >
+            <option value="jahre">Jahre</option>
+            <option value="monate">Monate</option>
+          </select>
+        </div>
         {/*Zinseszins*/}
-        <fieldset className="flex justify-start gap-5">
-          <div className="flex gap-0.5">
-            <label htmlFor="zinseszins" className="inline-block">
-              Zinseszins
-            </label>
-            <Tooltip highlight="?" text="Zinseszins erklärung" />
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="flex items-center gap-1">
-              <input
-                type="radio"
-                id="ja"
-                name="janeinzinsansammlung"
-                value="Ja, Zinsansammlung"
-                onChange={handleChange}
-                checked={compoundInterest}
-                className="border rounded-sm text-right"
-              />
-              <label htmlFor="ja">Ja</label>
-            </div>
-            <div className="flex items-center gap-1">
-              <input
-                type="radio"
-                id="nein"
-                name="janeinzinsansammlung"
-                value="Nein, Zinsauszahlung"
-                onChange={handleChange}
-                checked={!compoundInterest}
-                className="border rounded-sm text-right"
-              />
-              <label htmlFor="nein">Nein</label>
-            </div>
-          </div>
-        </fieldset>{" "}
-        {/*Endkapital*/}
-        <fieldset className="flex justify-start gap-5">
-          <div className="flex gap-0.5">
-            <label htmlFor="endkapital" className="inline-block">
-              Endkapital
-            </label>
-            <Tooltip highlight="?" text="Endkapital erklärung" />
-          </div>
-          <div className="flex gap-0.5 items-center">
+        <div className="flex gap-0.5">
+          <label htmlFor="zinseszins" className="inline-block">
+            Zinseszins
+          </label>
+          <Tooltip highlight="?" text="Zinseszins erklärung" />
+        </div>
+        <div className="flex items-center gap-2 col-span-2">
+          <div className="flex items-center gap-1">
             <input
-              disabled
-              name="endkapital"
-              defaultValue={finalCapital}
-              type="number"
-              className="w-fit border rounded-md text-right font-bold text-2xl"
+              type="radio"
+              id="ja"
+              name="janeinzinsansammlung"
+              value="Ja, Zinsansammlung"
+              onChange={handleChange}
+              checked={compoundInterest}
+              className="border rounded-sm text-right"
             />
-            <span>€</span>
+            <label htmlFor="ja">Ja</label>
           </div>
-        </fieldset>
-        <fieldset className="flex gap-10">
+          <div className="flex items-center gap-1">
+            <input
+              type="radio"
+              id="nein"
+              name="janeinzinsansammlung"
+              value="Nein, Zinsauszahlung"
+              onChange={handleChange}
+              checked={!compoundInterest}
+              className="border rounded-sm text-right"
+            />
+            <label htmlFor="nein">Nein</label>
+          </div>
+        </div>
+        {/*Endkapital*/}
+        <div className="flex gap-0.5">
+          <label htmlFor="endkapital" className="inline-block">
+            Endkapital
+          </label>
+          <Tooltip highlight="?" text="Endkapital erklärung" />
+        </div>
+        <div className="flex gap-0.5 col-span-2">
+          <input
+            disabled
+            name="endkapital"
+            defaultValue={finalCapital}
+            type="number"
+            className="w-fit border rounded-md text-right font-bold text-2xl"
+          />
+          <span>€</span>
+        </div>
+        <div className="flex flex-col sm:flex-row gap-10">
           <button className="btnrechnen" type="submit">
             Rechnen
           </button>
           <button className="btnrechnen" onClick={downloadPdf}>
             Generate PDF
           </button>
-        </fieldset>
+        </div>
       </form>
     </div>
   );
