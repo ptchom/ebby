@@ -67,7 +67,7 @@ export const ZinsrechnerForm = () => {
       <form
         onSubmit={handleSubmit}
         // className="flex flex-col justify-start gap-5"
-        className="flex flex-col md:grid md:grid-cols-3 gap-5"
+        className="flex flex-col sm:grid sm:grid-cols-3 gap-5"
       >
         {/*  First line anfangskapital*/}
         <div className="flex gap-0.5">
@@ -82,7 +82,7 @@ export const ZinsrechnerForm = () => {
             type="number"
             defaultValue={initialCapital}
             onChange={handleChange}
-            className="w-fit border rounded-md text-right"
+            className="border rounded-md text-right w-48"
           />
           <span className="font-semibold">€</span>
         </div>
@@ -100,7 +100,7 @@ export const ZinsrechnerForm = () => {
             step="0.001"
             defaultValue={interestRate}
             onChange={handleChange}
-            className="w-fit border rounded-md text-right"
+            className="border rounded-md text-right w-48"
           />
           <span className="font-semibold">% p.a.</span>
         </div>
@@ -111,19 +111,19 @@ export const ZinsrechnerForm = () => {
           </label>
           <Tooltip highlight="?" text="Laufzeit erklärung" />
         </div>
-        <div className="flex gap-0.5 col-span-2">
+        <div className="flex flex-col col-span-2 gap-0.5 md:flex-row md:col-span-2">
           <input
             name="laufzeit"
             type="number"
             defaultValue={duration}
             onChange={handleChange}
-            className="w-fit border rounded-md text-right"
+            className="border rounded-md text-right w-48"
           />
           <select
             id="laufzeit"
             name="laufzeitUnit"
             onChange={handleChange}
-            className="border rounded-md outline-none px-3 bg-white text-gray-800"
+            className="border rounded-md outline-none px-3 bg-white text-gray-800 w-36"
           >
             <option value="jahre">Jahre</option>
             <option value="monate">Monate</option>
@@ -175,7 +175,7 @@ export const ZinsrechnerForm = () => {
             name="endkapital"
             defaultValue={finalCapital}
             type="number"
-            className="w-fit border rounded-md text-right font-bold text-2xl"
+            className="border rounded-md text-right font-bold text-2xl w-48"
           />
           <span>€</span>
         </div>
