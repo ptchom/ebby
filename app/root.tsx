@@ -8,10 +8,9 @@ import {
 import { ReactNode } from "react";
 import type { LinksFunction } from "@remix-run/node";
 import stylesheet from "~/tailwind.css?url";
-import { Header } from "~/components/header";
-import { Aside } from "~/components/aside";
-import { Footer } from "~/components/footer";
-import { googleTagManager } from "~/shared/config";
+import { Header } from "~/ui/components/header";
+import { Aside } from "~/ui/components/aside";
+import { Footer } from "~/ui/components/footer";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
@@ -41,29 +40,6 @@ export function Layout({ children }: { children: ReactNode }) {
         </footer>
         <ScrollRestoration />
         <Scripts />
-        {
-          <>
-            <script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${googleTagManager}`}
-            />
-            <script
-              async
-              id="gtag-init"
-              dangerouslySetInnerHTML={{
-                __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-
-                gtag('config', '${googleTagManager}', {
-                  page_path: window.location.pathname,
-                });
-              `,
-              }}
-            />
-          </>
-        }
       </body>
     </html>
   );

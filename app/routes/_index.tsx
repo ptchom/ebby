@@ -1,6 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
-import { WEBSITE_API } from "~/shared/api";
-import { metatags } from "~/shared/lib/meta-semantic";
+import { WEBSITE_API } from "~/lib/config/api";
+import { metatags } from "~/lib/seo/meta-semantic";
 
 export const meta: MetaFunction = () => {
   return [

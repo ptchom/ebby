@@ -1,5 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
-import { frontPageMetaArray } from "~/shared/lib/meta-semantic";
+import { frontPageMetaArray } from "~/lib/seo/meta-semantic";
 
 export const meta: MetaFunction = () => {
   return frontPageMetaArray;

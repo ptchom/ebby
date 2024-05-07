@@ -1,5 +1,5 @@
-import { metatags } from "~/shared/lib/meta-semantic";
-import { WEBSITE_API } from "~/shared/api";
+import { metatags } from "~/lib/seo/meta-semantic";
+import { WEBSITE_API } from "~/lib/config/api";
 
 export const metaZinsrechner = [
   { title: "Kreditrechner" },

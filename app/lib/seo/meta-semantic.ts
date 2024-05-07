@@ -1,4 +1,4 @@
-import { WEBSITE_API } from "~/shared/api";
+import { WEBSITE_API } from "~/lib/config/api";
 
 export const metatags = {
   description: "description", // <meta name="description" content="This is an example page.">

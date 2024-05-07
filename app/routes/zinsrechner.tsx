@@ -1,7 +1,7 @@
 import { MetaFunction } from "@remix-run/node";
-import { contentKreditrechner } from "~/rechner/kreditrechner/content-kreditrechner";
-import { metaKreditrechner } from "~/rechner/kreditrechner/meta-kreditrechner";
-import { ZinsrechnerForm } from "~/rechner/zinsrechner-form";
+import { contentKreditrechner } from "~/ui/rechner/kreditrechner/content-kreditrechner";
+import { metaKreditrechner } from "~/ui/rechner/kreditrechner/meta-kreditrechner";
+import { ZinsrechnerForm } from "~/ui/rechner/zinsrechner-form";
 import { ReactElement } from "react";
 
 export const meta: MetaFunction = () => {

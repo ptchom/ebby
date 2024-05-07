@@ -37,3 +37,10 @@ Make sure to deploy the output of `npm run build`
 - `build/client`
 
 Deploy: https://eb.by/
+Libs: 
+- https://react-pdf.org/
+- https://heroicons.com/?
+- https://github.com/lukeed/clsx#readme
+- https://tailwindcss.com/
+- https://flowbite-react.com/ or https://developer.microsoft.com/en-us/fluentui#/?
+- 

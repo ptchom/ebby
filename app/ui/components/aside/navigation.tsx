@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 import { Link } from "@remix-run/react";
-import { rechnerRoutes } from "~/shared/lib/naviUrls";
+import { rechnerRoutes } from "~/lib/routes/naviUrls";
 
 export const Navigation = (): ReactElement => {
   const linkClass = "py-2 inline-block text-blue-500 hover:text-blue-800";
