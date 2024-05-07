@@ -12,7 +12,7 @@ export default function Zinsrechner(): ReactElement {
   return (
     <>
       <header>
-        <h2>Zinsrechner für einmalige Geldanlage</h2>
+        <h4 className="text-center">Zinsrechner für einmalige Geldanlage</h4>
       </header>
       <ZinsrechnerForm />
       <article

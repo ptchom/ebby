@@ -55,18 +55,18 @@ export const ZinsrechnerForm = () => {
     calculateAndSetFinalCapital();
   };
   return (
-    <div className="mx-auto mb-5 bg-opacity-5 p-5 rounded-lg shadow-xl text-xl">
+    <div className="mx-auto mb-5 bg-opacity-5 p-0.5 md:p-5 rounded-lg shadow-xl sm:text-xl">
       <h4 className="text-center">ZinsrechnerForm</h4>
       <form
         onSubmit={handleSubmit}
         // className="flex flex-col justify-start gap-5"
-        className="grid grid-cols-3 gap-2 md:gap-5  "
+        className="grid grid-cols-3 gap-0 "
       >
         {/*  First line anfangskapital*/}
         <label htmlFor="anfangskapital" className="inline-block">
           Anfangskapital
         </label>
-        <div className="flex gap-0.5 col-span-2">
+        <div className="flex gap-2 col-span-2">
           <input
             name="anfangskapital"
             type="number"
@@ -76,11 +76,13 @@ export const ZinsrechnerForm = () => {
           />
           <span className="">€</span>
         </div>
+        <hr className="border-black border-t opacity-50 my-2 col-span-3" />
+
         {/*Zinssatz*/}
         <label htmlFor="zinssatz" className="inline-block">
           Zinssatz
         </label>
-        <div className="flex gap-0.5 col-span-2">
+        <div className="flex gap-2 col-span-2">
           <input
             name="zinssatz"
             type="number"
@@ -92,6 +94,8 @@ export const ZinsrechnerForm = () => {
           <span className="">% p.a.</span>
         </div>
         {/*Laufzeit*/}
+        <hr className="border-black border-t opacity-50 my-2 col-span-3" />
+
         <label htmlFor="laufzeit" className="inline-block">
           Laufzeit
         </label>
@@ -114,6 +118,8 @@ export const ZinsrechnerForm = () => {
           </select>
         </div>
         {/*Zinseszins*/}
+        <hr className="border-black border-t opacity-50 my-2 col-span-3" />
+
         <label htmlFor="zinseszins" className="inline-block">
           Zinseszins
         </label>
@@ -144,6 +150,7 @@ export const ZinsrechnerForm = () => {
           </div>
         </div>
         {/*Endkapital*/}
+        <hr className="border-black border-t opacity-50 my-2 col-span-3" />
         <label htmlFor="endkapital" className="inline-block">
           Endkapital
         </label>
@@ -153,10 +160,11 @@ export const ZinsrechnerForm = () => {
             name="endkapital"
             defaultValue={finalCapital}
             type="number"
-            className="border rounded-md text-right text-teal-700 font-bold text-3xl w-48"
+            className="border rounded-md text-right text-teal-700 font-bold  w-48"
           />
           <span>€</span>
         </div>
+        <hr className="border-black border-t opacity-50 my-2 col-span-3" />
         <div className="flex flex-col sm:flex-row gap-10">
           <button className="btnrechnen" type="submit">
             Rechnen
