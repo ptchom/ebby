@@ -1,8 +1,9 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { Tooltip } from "~/ui/components/forms/tooltip";
-import { pdf, View, Text } from "@react-pdf/renderer";
+import { pdf } from "@react-pdf/renderer";
 import { PdfDocument } from "~/lib/utils/pdf/pdf-document";
 import { calculateEndkapital } from "~/lib/rechner/zinsrechner/calculate-zins";
+import { ZinsrechnerPdfData } from "~/ui/rechner/zinsrechner-form/type";
 
 export const ZinsrechnerForm = () => {
   const [initialCapital, setInitialCapital] = useState<number>(1000);
@@ -11,8 +12,6 @@ export const ZinsrechnerForm = () => {
   const [durationUnit, setDurationUnit] = useState("jahre"); // Новое состояние
   const [compoundInterest, setCompoundInterest] = useState<boolean>(true); // Новое состояние
   const [finalCapital, setFinalCapital] = useState<string>("");
-  const buttonClass =
-    "bg-teal-500 hover:bg-teal-700 active:bg-teal-900 focus:ring-teal-600 text-white font-bold py-1 px-2 rounded focus:outline-none focus:ring-2 focus:ring-opacity-50 min-w-48";
   const calculateAndSetFinalCapital = () => {
     const newFinalCapital = calculateEndkapital(
       initialCapital,
@@ -24,17 +23,14 @@ export const ZinsrechnerForm = () => {
     setFinalCapital(newFinalCapital);
   };
 
-  const MyTable = () => (
-    <View>
-      <Text>Cell 1</Text>
-      <Text>Cell 2</Text>
-      {/* и так далее */}
-    </View>
-  );
+  const pdfData: ZinsrechnerPdfData = {
+    test1: "Zinsrechner",
+    test2: "Form",
+  };
 
   const downloadPdf = async (): Promise<void> => {
-    const PdfDoc = () => <PdfDocument content={<MyTable />} />;
-    const pdfDoc = pdf(<PdfDoc />);
+    console.log({ pdfData });
+    const pdfDoc = pdf(<PdfDocument content={pdfData} />);
     const blob: Blob = await pdfDoc.toBlob();
     window.open(URL.createObjectURL(blob), "_blank");
   };
@@ -190,10 +186,10 @@ export const ZinsrechnerForm = () => {
           </div>
         </fieldset>
         <fieldset className="flex gap-10">
-          <button className={buttonClass} type="submit">
+          <button className="btnrechnen" type="submit">
             Rechnen
           </button>
-          <button className={buttonClass} onClick={downloadPdf}>
+          <button className="btnrechnen" onClick={downloadPdf}>
             Generate PDF
           </button>
         </fieldset>
