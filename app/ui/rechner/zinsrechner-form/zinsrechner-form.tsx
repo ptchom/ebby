@@ -72,7 +72,7 @@ export const ZinsrechnerForm = () => {
             type="number"
             defaultValue={initialCapital}
             onChange={handleChange}
-            className="border rounded-md text-right w-36"
+            className="border rounded-md text-right w-28"
           />
           <span className="">€</span>
         </div>
@@ -89,7 +89,7 @@ export const ZinsrechnerForm = () => {
             step="0.001"
             defaultValue={interestRate}
             onChange={handleChange}
-            className="border rounded-md text-right w-36"
+            className="border rounded-md text-right w-28"
           />
           <span className="">% p.a.</span>
         </div>
@@ -105,13 +105,13 @@ export const ZinsrechnerForm = () => {
             type="number"
             defaultValue={duration}
             onChange={handleChange}
-            className="border rounded-md text-right w-36"
+            className="border rounded-md text-right w-28"
           />
           <select
             id="laufzeit"
             name="laufzeitUnit"
             onChange={handleChange}
-            className="border rounded-md outline-none px-3 bg-white text-gray-800 w-36"
+            className="border rounded-md outline-none px-3 bg-white text-gray-800 w-28"
           >
             <option value="jahre">Jahre</option>
             <option value="monate">Monate</option>
@@ -160,7 +160,7 @@ export const ZinsrechnerForm = () => {
             name="endkapital"
             defaultValue={finalCapital}
             type="number"
-            className="border rounded-md text-right text-teal-700 font-bold  w-48"
+            className="border rounded-md text-right text-teal-700 font-bold w-28"
           />
           <span>€</span>
         </div>
