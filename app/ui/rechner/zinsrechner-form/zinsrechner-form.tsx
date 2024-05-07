@@ -56,37 +56,31 @@ export const ZinsrechnerForm = () => {
     calculateAndSetFinalCapital();
   };
   return (
-    <div className="mx-auto mb-5 bg-opacity-5 p-5 rounded-lg shadow-xl text-2xl">
+    <div className="mx-auto mb-5 bg-opacity-5 p-5 rounded-lg shadow-xl text-xl">
       <h4 className="text-center">ZinsrechnerForm</h4>
       <form
         onSubmit={handleSubmit}
         // className="flex flex-col justify-start gap-5"
-        className="flex flex-col sm:grid sm:grid-cols-3 gap-2 md:gap-5  "
+        className="grid grid-cols-3 gap-2 md:gap-5  "
       >
         {/*  First line anfangskapital*/}
-        <div className="flex gap-0.5">
-          <label htmlFor="anfangskapital" className="inline-block">
-            Anfangskapital
-          </label>
-          <Tooltip highlight="?" text="Anfangskapital erklärung" />
-        </div>
+        <label htmlFor="anfangskapital" className="inline-block">
+          Anfangskapital
+        </label>
         <div className="flex gap-0.5 col-span-2">
           <input
             name="anfangskapital"
             type="number"
             defaultValue={initialCapital}
             onChange={handleChange}
-            className="border rounded-md text-right w-48"
+            className="border rounded-md text-right w-36"
           />
-          <span className="font-semibold">€</span>
+          <span className="">€</span>
         </div>
         {/*Zinssatz*/}
-        <div className="flex gap-0.5">
-          <label htmlFor="zinssatz" className="inline-block">
-            Zinssatz
-          </label>
-          <Tooltip highlight="?" text="Zinssatz erklärung" />
-        </div>
+        <label htmlFor="zinssatz" className="inline-block">
+          Zinssatz
+        </label>
         <div className="flex gap-0.5 col-span-2">
           <input
             name="zinssatz"
@@ -94,24 +88,21 @@ export const ZinsrechnerForm = () => {
             step="0.001"
             defaultValue={interestRate}
             onChange={handleChange}
-            className="border rounded-md text-right w-48"
+            className="border rounded-md text-right w-36"
           />
-          <span className="font-semibold">% p.a.</span>
+          <span className="">% p.a.</span>
         </div>
         {/*Laufzeit*/}
-        <div className="flex gap-0.5">
-          <label htmlFor="laufzeit" className="inline-block">
-            Laufzeit
-          </label>
-          <Tooltip highlight="?" text="Laufzeit erklärung" />
-        </div>
-        <div className="flex flex-col col-span-2 gap-0.5 md:flex-row md:col-span-2">
+        <label htmlFor="laufzeit" className="inline-block">
+          Laufzeit
+        </label>
+        <div className="flex col-span-2 gap-0.5 ">
           <input
             name="laufzeit"
             type="number"
             defaultValue={duration}
             onChange={handleChange}
-            className="border rounded-md text-right w-48"
+            className="border rounded-md text-right w-36"
           />
           <select
             id="laufzeit"
@@ -124,12 +115,9 @@ export const ZinsrechnerForm = () => {
           </select>
         </div>
         {/*Zinseszins*/}
-        <div className="flex gap-0.5">
-          <label htmlFor="zinseszins" className="inline-block">
-            Zinseszins
-          </label>
-          <Tooltip highlight="?" text="Zinseszins erklärung" />
-        </div>
+        <label htmlFor="zinseszins" className="inline-block">
+          Zinseszins
+        </label>
         <div className="flex items-center gap-2 col-span-2">
           <div className="flex items-center gap-1">
             <input
@@ -157,12 +145,9 @@ export const ZinsrechnerForm = () => {
           </div>
         </div>
         {/*Endkapital*/}
-        <div className="flex gap-0.5">
-          <label htmlFor="endkapital" className="inline-block">
-            Endkapital
-          </label>
-          <Tooltip highlight="?" text="Endkapital erklärung" />
-        </div>
+        <label htmlFor="endkapital" className="inline-block">
+          Endkapital
+        </label>
         <div className="flex gap-0.5 col-span-2">
           <input
             disabled
