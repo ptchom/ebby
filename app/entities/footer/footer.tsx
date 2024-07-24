@@ -1,4 +1,5 @@
 import { ReactElement } from "react";
+
 import { Link } from "@remix-run/react";
 
 export const Footer = (): ReactElement => {

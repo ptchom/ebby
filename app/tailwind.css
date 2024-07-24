@@ -1,66 +1,75 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwind variants;
 
 @layer base {
-    body {
-        @apply mx-auto max-w-big ;
-        @apply bg-svg-background bg-svg-pattern-topography;
-        /*@apply text-xl;*/
-        @apply flex flex-col md:grid md:grid-cols-12 md:gap-1 md:min-h-dvh md:grid-rows-[auto,1fr,auto] lg:gap-2 xl:gap-3 2xl:gap-4;
-        font-family: "system-ui, sans-serif", serif;
-    }
+  body {
+    @apply mx-auto max-w-big;
+    @apply bg-svg-background bg-svg-pattern-topography;
+    /*@apply text-xl;*/
+    @apply flex flex-col md:grid md:grid-cols-12 md:gap-1 md:min-h-dvh md:grid-rows-[auto,1fr,auto] lg:gap-2 xl:gap-3 2xl:gap-4;
+    @apply font-system;
+  }
 
-    header, aside, main {
-        @apply bg-svg-background bg-opacity-70 border-gray-400 rounded-lg border-2 text-balance truncate;
-    }
+  header,
+  aside,
+  main {
+    @apply bg-svg-background bg-opacity-70 border-gray-400 rounded-lg border-2 text-balance truncate;
+  }
 
-    h1 {
-        @apply text-3xl 2xl:text-6xl xl:text-5xl;
-    }
+  h1 {
+    @apply text-3xl 2xl:text-6xl xl:text-5xl;
+  }
 
-    h2 {
-        @apply text-3xl xl:text-3xl;
-    }
+  h2 {
+    @apply text-3xl xl:text-3xl;
+  }
 
-    h3, h4, h5, h6 {
-        @apply text-2xl ;
-    }
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-2xl;
+  }
 
-    h1, h2, h3, h4, h5, h6 {
-        @apply text-teal-800 py-2 font-bold;
-    }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-teal-800 py-2 font-bold;
+  }
 
-    main {
-        @apply p-2 md:p-5;
-    }
+  main {
+    @apply p-2 md:p-5;
+  }
 
-    aside {
-        @apply p-2 2xl:p-5;
-    }
+  aside {
+    @apply p-2 2xl:p-5;
+  }
 
-    li, a {
-        @apply break-words lg:text-xl;
-    }
+  li,
+  a {
+    @apply break-words lg:text-xl;
+  }
 
-    footer {
-        @apply p-2 md:p-5;
-    }
+  footer {
+    @apply p-2 md:p-5;
+  }
 
-    p {
-        @apply my-2 text-justify lg:text-left;
-    }
+  p {
+    @apply my-2 text-justify lg:text-left;
+  }
 }
 
-
+@layer components {
+}
 @layer utilities {
-    .btnrechnen {
-        @apply bg-teal-500 hover:bg-teal-700 active:bg-teal-900;
-        @apply focus:ring-teal-600 focus:outline-none focus:ring-2 focus:ring-opacity-50;
-        @apply text-white font-bold py-1 px-2 rounded sm:min-w-48 w-48;
-    }
+  .btnrechnen {
+    @apply bg-teal-500 hover:bg-teal-700 active:bg-teal-900;
+    @apply focus:ring-teal-600 focus:outline-none focus:ring-2 focus:ring-opacity-50;
+    @apply text-white font-bold py-1 px-2 rounded sm:min-w-48 w-48;
+  }
 }
-
-
-
-

@@ -1,3 +1,6 @@
+import { ReactNode } from "react";
+
+import type { LinksFunction } from "@remix-run/node";
 import {
   Links,
   Meta,
@@ -5,12 +8,10 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import { ReactNode } from "react";
-import type { LinksFunction } from "@remix-run/node";
+import { Aside } from "~/entities/aside";
+import { Footer } from "~/entities/footer";
+import { Header } from "~/entities/header";
 import stylesheet from "~/tailwind.css?url";
-import { Header } from "~/ui/components/header";
-import { Aside } from "~/ui/components/aside";
-import { Footer } from "~/ui/components/footer";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },

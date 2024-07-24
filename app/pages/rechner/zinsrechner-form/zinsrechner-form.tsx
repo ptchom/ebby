@@ -1,8 +1,10 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import { pdf } from "@react-pdf/renderer";
-import { PdfDocument } from "~/lib/utils/pdf/pdf-document";
-import { calculateEndkapital } from "~/lib/rechner/zinsrechner/calculate-zins";
+
 import { ZinsrechnerUserData } from "./type";
+
+import { pdf } from "@react-pdf/renderer";
+import { calculateEndkapital } from "~/lib/rechner/zinsrechner/calculate-zins";
+import { PdfDocument } from "~/lib/utils/pdf/pdf-document";
 
 export const ZinsrechnerForm = () => {
   const [initialCapital, setInitialCapital] = useState<number>(1000);
@@ -34,7 +36,7 @@ export const ZinsrechnerForm = () => {
   const handleChange = (
     changeEvent: ChangeEvent<
       HTMLTextAreaElement | HTMLInputElement | HTMLSelectElement
-    >
+    >,
   ) => {
     if (changeEvent.target.name === "anfangskapital") {
       setInitialCapital(Number(changeEvent.target.value));
@@ -46,7 +48,7 @@ export const ZinsrechnerForm = () => {
       setDurationUnit(changeEvent.target.value);
     } else if (changeEvent.currentTarget.name === "janeinzinsansammlung") {
       setCompoundInterest(
-        changeEvent.currentTarget.value === "Ja, Zinsansammlung"
+        changeEvent.currentTarget.value === "Ja, Zinsansammlung",
       );
     }
   };

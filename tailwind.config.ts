@@ -4,6 +4,9 @@ export default {
   content: ["./app/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        system: ["system-ui, sans-serif", "serif"],
+      },
       maxWidth: {
         big: "1800px",
       },
