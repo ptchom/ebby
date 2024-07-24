@@ -24,11 +24,13 @@ module.exports = {
   // Base config
   extends: ["eslint:recommended"],
 
+  plugins: ['react', '@typescript-eslint', 'prettier', 'simple-import-sort'],
+
   overrides: [
     // React
     {
       files: ["**/*.{js,jsx,ts,tsx}"],
-      plugins: ["react", "jsx-a11y"],
+      plugins: ["jsx-a11y"],
       extends: [
         "plugin:react/recommended",
         "plugin:react/jsx-runtime",
@@ -49,7 +51,7 @@ module.exports = {
         },
       },
       rules: {
-        "react/no-unescaped-entities": "warn"
+        "react/no-unescaped-entities": "warn",
       }
     },
 
@@ -75,10 +77,38 @@ module.exports = {
         "plugin:import/typescript",
       ],
       rules:{
-        "@typescript-eslint/no-unused-vars": "warn"
+        "@typescript-eslint/no-unused-vars": "warn",
+        'simple-import-sort/imports': [
+          'error',
+          {
+            groups: [
+              // Packages `react` related packages come first.
+              ['^react', '^\\w', '^@hookform', '^@radix-ui'],
+              // npm packages
+              // Anything that starts with a letter (or digit or underscore), or `@` followed by a letter.
+              // ['^\\w'],
+              // Internal packages.
+              ['^@store(/.*|$)'],
+              ['^@components(/.*|$)'],
+              ['^@ui(/.*|$)'],
+              ['^@lib(/.*|$)'],
+              ['^@pages(/.*|$)'],
+              ['^@utils(/.*|$)'],
+              ['^@hooks(/.*|$)'],
+              ['^@services(/.*|$)'],
+              // Side effect imports.
+              ['^\\u0000'],
+              // Parent imports. Put `..` last.
+              ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+              // Other relative imports. Put same-folder imports and `.` last.
+              ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+              // Style imports.
+              ['^.+\\.?(css)$'],
+            ],
+          },
+        ],
       }
     },
-
     // Node
     {
       files: [".eslintrc.cjs"],

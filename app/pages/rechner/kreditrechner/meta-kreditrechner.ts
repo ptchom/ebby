@@ -1,7 +1,7 @@
-import { metatags } from "~/lib/seo/meta-semantic";
 import { WEBSITE_API } from "~/lib/config/api";
+import { metatags } from "~/lib/seo/meta-semantic";
 
-export const metaZinsrechner = [
+export const metaKreditrechner = [
   { title: "Kreditrechner" },
   {
     name: metatags.description,

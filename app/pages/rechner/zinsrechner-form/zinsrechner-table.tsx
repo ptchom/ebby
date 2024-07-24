@@ -1,5 +1,6 @@
-import React from "react";
-import { ZinsrechnerUserData } from "~/ui/rechner/zinsrechner-form/type";
+import { FC } from "react";
+
+import { ZinsrechnerUserData } from "~/pages/rechner/zinsrechner-form/type";
 
 type YearData = {
   year: number;
@@ -9,7 +10,7 @@ type YearData = {
   final: number;
 };
 
-export const ZinsrechnerTable: React.FC<ZinsrechnerUserData> = ({
+export const ZinsrechnerTable: FC<ZinsrechnerUserData> = ({
   initialCapital,
   interestRate,
   duration,
