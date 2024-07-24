@@ -53,4 +53,10 @@ export const rechnerRoutes = [
     anchor: "Sparrechner ",
     weight: 3,
   },
+  {
+    slug: "geld-sparen",
+    title: "Geld sparen",
+    anchor: "Geld sparen ",
+    weight: 13,
+  },
 ];
