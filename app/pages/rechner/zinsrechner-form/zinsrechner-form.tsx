@@ -129,10 +129,10 @@ export const ZinsrechnerForm = () => {
       <label htmlFor="zinseszins" className="inline-block">
         Zinseszins
       </label>
-      <div className="col-span-2 flex items-center gap-2">
+      <div className="col-span-2 flex items-center gap-0.5">
         <label
           htmlFor="zinseszins-toggler"
-          className="flex cursor-pointer items-center"
+          className="flex w-28 cursor-pointer items-center"
         >
           <input
             type="checkbox"
@@ -153,7 +153,7 @@ export const ZinsrechnerForm = () => {
             />
           </div>
         </label>
-        <span className="flex h-5 items-center">
+        <span className="flex items-center">
           {compoundInterest ? "Ja, Zinsansammlung" : "Nein, Zinsauszahlung"}
         </span>
       </div>
@@ -164,6 +164,7 @@ export const ZinsrechnerForm = () => {
       <label htmlFor="endkapital" className="inline-block">
         Endkapital
       </label>
+
       <div className="col-span-2 flex gap-0.5">
         <input
           disabled
