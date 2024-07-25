@@ -8,9 +8,11 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+
 import { Aside } from "~/entities/aside";
 import { Footer } from "~/entities/footer";
 import { Header } from "~/entities/header";
+
 import stylesheet from "~/tailwind.css?url";
 
 export const links: LinksFunction = () => [
