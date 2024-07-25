@@ -86,16 +86,17 @@ module.exports = {
               ["^react", "^\\w", "^@hookform", "^@radix-ui"],
               // npm packages
               // Anything that starts with a letter (or digit or underscore), or `@` followed by a letter.
+              ["^@\\w"],
               // ['^\\w'],
               // Internal packages.
-              ["^@store(/.*|$)"],
-              ["^@components(/.*|$)"],
-              ["^@ui(/.*|$)"],
-              ["^@lib(/.*|$)"],
-              ["^@pages(/.*|$)"],
-              ["^@utils(/.*|$)"],
-              ["^@hooks(/.*|$)"],
-              ["^@services(/.*|$)"],
+              ["^~/entities(/.*|$)"],
+              ["^~/features(/.*|$)"],
+              ["^~/lib(/.*|$)"],
+              ["^~/pages(/.*|$)"],
+              ["^~/routes(/.*|$)"],
+              ["^~/shared(/.*|$)"],
+              ["^~/widgets(/.*|$)"],
+              // ["^~/services(/.*|$)"],
               // Side effect imports.
               ["^\\u0000"],
               // Parent imports. Put `..` last.

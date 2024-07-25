@@ -1,10 +1,11 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 
-import { ZinsrechnerUserData } from "./type";
-
 import { pdf } from "@react-pdf/renderer";
+
 import { calculateEndkapital } from "~/lib/rechner/zinsrechner/calculate-zins";
 import { PdfDocument } from "~/lib/utils/pdf/pdf-document";
+
+import { ZinsrechnerUserData } from "./type";
 
 export const ZinsrechnerForm = () => {
   const [initialCapital, setInitialCapital] = useState<number>(1000);
