@@ -4,16 +4,11 @@
  * For more information, see https://remix.run/file-conventions/entry.client
  */
 
-import { startTransition, StrictMode } from "react";
+import { startTransition } from "react";
 import { hydrateRoot } from "react-dom/client";
 
 import { RemixBrowser } from "@remix-run/react";
 
 startTransition(() => {
-  hydrateRoot(
-    document,
-    <StrictMode>
-      <RemixBrowser />
-    </StrictMode>,
-  );
+  hydrateRoot(document, <RemixBrowser />);
 });

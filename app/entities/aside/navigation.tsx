@@ -18,7 +18,7 @@ export const Navigation = (): ReactElement => {
     <nav>
       <ul>
         {menu}
-        <hr className="border-black border-t opacity-50 my-4" />
+        <hr className="my-4 border-t border-black opacity-50" />
         {/*  <li>*/}
         {/*    <Link to="/example-rechner-layout" className={linkClass}>*/}
         {/*      Example rechner layout*/}

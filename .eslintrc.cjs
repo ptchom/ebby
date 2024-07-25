@@ -1,9 +1,3 @@
-/**
- * This is intended to be a basic starting point for linting in your app.
- * It relies on recommended configs out of the box for simplicity, but you can
- * and should modify this configuration to best suit your team's needs.
- */
-
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
   root: true,
@@ -22,9 +16,11 @@ module.exports = {
   ignorePatterns: ["!**/.server", "!**/.client"],
 
   // Base config
-  extends: ["eslint:recommended"],
+  extends: [
+    "eslint:recommended",
+  ],
 
-  plugins: ['react', '@typescript-eslint', 'prettier', 'simple-import-sort'],
+  plugins: ["react", "@typescript-eslint", "prettier", "simple-import-sort", "tailwindcss"],
 
   overrides: [
     // React
@@ -36,15 +32,19 @@ module.exports = {
         "plugin:react/jsx-runtime",
         "plugin:react-hooks/recommended",
         "plugin:jsx-a11y/recommended",
+        "plugin:tailwindcss/recommended",
+        "prettier",
+        "plugin:prettier/recommended"
       ],
+      parser: "@typescript-eslint/parser",
       settings: {
         react: {
           version: "detect",
         },
         formComponents: ["Form"],
         linkComponents: [
-          {name: "Link", linkAttribute: "to"},
-          {name: "NavLink", linkAttribute: "to"},
+          { name: "Link", linkAttribute: "to" },
+          { name: "NavLink", linkAttribute: "to" },
         ],
         "import/resolver": {
           typescript: {},
@@ -52,7 +52,7 @@ module.exports = {
       },
       rules: {
         "react/no-unescaped-entities": "warn",
-      }
+      },
     },
 
     // Typescript
@@ -76,38 +76,38 @@ module.exports = {
         "plugin:import/recommended",
         "plugin:import/typescript",
       ],
-      rules:{
+      rules: {
         "@typescript-eslint/no-unused-vars": "warn",
-        'simple-import-sort/imports': [
-          'error',
+        "simple-import-sort/imports": [
+          "error",
           {
             groups: [
               // Packages `react` related packages come first.
-              ['^react', '^\\w', '^@hookform', '^@radix-ui'],
+              ["^react", "^\\w", "^@hookform", "^@radix-ui"],
               // npm packages
               // Anything that starts with a letter (or digit or underscore), or `@` followed by a letter.
               // ['^\\w'],
               // Internal packages.
-              ['^@store(/.*|$)'],
-              ['^@components(/.*|$)'],
-              ['^@ui(/.*|$)'],
-              ['^@lib(/.*|$)'],
-              ['^@pages(/.*|$)'],
-              ['^@utils(/.*|$)'],
-              ['^@hooks(/.*|$)'],
-              ['^@services(/.*|$)'],
+              ["^@store(/.*|$)"],
+              ["^@components(/.*|$)"],
+              ["^@ui(/.*|$)"],
+              ["^@lib(/.*|$)"],
+              ["^@pages(/.*|$)"],
+              ["^@utils(/.*|$)"],
+              ["^@hooks(/.*|$)"],
+              ["^@services(/.*|$)"],
               // Side effect imports.
-              ['^\\u0000'],
+              ["^\\u0000"],
               // Parent imports. Put `..` last.
-              ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+              ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
               // Other relative imports. Put same-folder imports and `.` last.
-              ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+              ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
               // Style imports.
-              ['^.+\\.?(css)$'],
+              ["^.+\\.?(css)$"],
             ],
           },
         ],
-      }
+      },
     },
     // Node
     {

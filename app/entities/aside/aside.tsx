@@ -10,7 +10,7 @@ export const Aside = (): ReactElement => {
     <>
       <Navigation />
       <ImAufbau />
-      <hr className="border-black border-t opacity-50 my-4" />
+      <hr className="my-4 border-t border-black opacity-50" />
       <GaBlockUno />
     </>
   );

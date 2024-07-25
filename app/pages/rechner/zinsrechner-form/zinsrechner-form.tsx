@@ -10,8 +10,8 @@ export const ZinsrechnerForm = () => {
   const [initialCapital, setInitialCapital] = useState<number>(1000);
   const [interestRate, setInterestRate] = useState<number>(3.79);
   const [duration, setDuration] = useState<number>(10);
-  const [durationUnit, setDurationUnit] = useState("jahre"); // Новое состояние
-  const [compoundInterest, setCompoundInterest] = useState<boolean>(true); // Новое состояние
+  const [durationUnit, setDurationUnit] = useState("jahre");
+  const [compoundInterest, setCompoundInterest] = useState<boolean>(true);
   const [finalCapital, setFinalCapital] = useState<string>("");
 
   const userData: ZinsrechnerUserData = {
@@ -21,6 +21,7 @@ export const ZinsrechnerForm = () => {
     durationUnit: durationUnit,
     compoundInterest: compoundInterest,
   };
+
   const calculateAndSetFinalCapital = () => {
     const newFinalCapital = calculateEndkapital(userData);
     setFinalCapital(newFinalCapital);
@@ -46,138 +47,143 @@ export const ZinsrechnerForm = () => {
       setDuration(Number(changeEvent.target.value));
     } else if (changeEvent.target.name === "laufzeitUnit") {
       setDurationUnit(changeEvent.target.value);
-    } else if (changeEvent.currentTarget.name === "janeinzinsansammlung") {
-      setCompoundInterest(
-        changeEvent.currentTarget.value === "Ja, Zinsansammlung",
-      );
     }
   };
+
+  const toggleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    if (event.target.id === "zinseszins-toggler") {
+      setCompoundInterest(event.target.checked);
+    }
+  };
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     calculateAndSetFinalCapital();
   };
+
   return (
-    <div className="mx-auto mb-5 bg-opacity-5 p-0.5 md:p-5 rounded-lg shadow-xl sm:text-xl">
-      <h4 className="text-center">ZinsrechnerForm</h4>
-      <form
-        onSubmit={handleSubmit}
-        // className="flex flex-col justify-start gap-5"
-        className="grid grid-cols-3 gap-0 "
-      >
-        {/*  First line anfangskapital*/}
-        <label htmlFor="anfangskapital" className="inline-block">
-          Anfangskapital
-        </label>
-        <div className="flex gap-2 col-span-2">
-          <input
-            name="anfangskapital"
-            type="number"
-            defaultValue={initialCapital}
-            onChange={handleChange}
-            className="border rounded-md text-right w-28"
-          />
-          <span className="">€</span>
-        </div>
-        <hr className="border-black border-t opacity-50 my-2 col-span-3" />
+    <form
+      className="mx-auto mb-5 grid grid-cols-3 gap-1 rounded-lg border-2 border-gray-400/5 p-0.5 shadow-xl sm:text-xl md:p-5"
+      onSubmit={handleSubmit}
+    >
+      {/*  First line anfangskapital */}
+      <label htmlFor="anfangskapital" className="inline-block">
+        Anfangskapital
+      </label>
+      <div className="col-span-2 flex gap-2">
+        <input
+          name="anfangskapital"
+          type="number"
+          defaultValue={initialCapital}
+          onChange={handleChange}
+          className=""
+        />
+        <span className="">€</span>
+      </div>
+      <hr className="col-span-3 my-2 border-t border-black opacity-50" />
 
-        {/*Zinssatz*/}
-        <label htmlFor="zinssatz" className="inline-block">
-          Zinssatz
-        </label>
-        <div className="flex gap-2 col-span-2">
-          <input
-            name="zinssatz"
-            type="number"
-            step="0.001"
-            defaultValue={interestRate}
-            onChange={handleChange}
-            className="border rounded-md text-right w-28"
-          />
-          <span className="">% p.a.</span>
-        </div>
-        {/*Laufzeit*/}
-        <hr className="border-black border-t opacity-50 my-2 col-span-3" />
+      {/* Zinssatz */}
+      <label htmlFor="zinssatz" className="inline-block">
+        Zinssatz
+      </label>
+      <div className="col-span-2 flex gap-2">
+        <input
+          name="zinssatz"
+          type="number"
+          step="0.001"
+          defaultValue={interestRate}
+          onChange={handleChange}
+          className="w-28 rounded-md border text-right"
+        />
+        <span className="">% p.a.</span>
+      </div>
+      <hr className="col-span-3 my-2 border-t border-black opacity-50" />
 
-        <label htmlFor="laufzeit" className="inline-block">
-          Laufzeit
-        </label>
-        <div className="flex col-span-2 gap-0.5 ">
+      {/* Laufzeit */}
+      <label htmlFor="laufzeit" className="inline-block">
+        Laufzeit
+      </label>
+      <div className="col-span-2 flex gap-0.5 ">
+        <input
+          name="laufzeit"
+          type="number"
+          defaultValue={duration}
+          onChange={handleChange}
+          className="w-28 rounded-md border text-right"
+        />
+        <select
+          id="laufzeit"
+          name="laufzeitUnit"
+          onChange={handleChange}
+          className="w-28 rounded-md border bg-white px-3 text-gray-800 outline-none"
+        >
+          <option value="jahre">Jahre</option>
+          <option value="monate">Monate</option>
+        </select>
+      </div>
+      <hr className="col-span-3 my-2 border-t border-black opacity-50" />
+
+      {/* Zinseszins */}
+
+      <label htmlFor="zinseszins" className="inline-block">
+        Zinseszins
+      </label>
+      <div className="col-span-2 flex items-center gap-2">
+        <label
+          htmlFor="zinseszins-toggler"
+          className="flex cursor-pointer items-center"
+        >
           <input
-            name="laufzeit"
-            type="number"
-            defaultValue={duration}
-            onChange={handleChange}
-            className="border rounded-md text-right w-28"
+            type="checkbox"
+            id="zinseszins-toggler"
+            onChange={toggleChange}
+            checked={compoundInterest}
+            className="sr-only"
           />
-          <select
-            id="laufzeit"
-            name="laufzeitUnit"
-            onChange={handleChange}
-            className="border rounded-md outline-none px-3 bg-white text-gray-800 w-28"
+          <div
+            className={`h-5 w-10 shrink-0 rounded-full transition-transform duration-300 ${
+              compoundInterest ? "bg-teal-500" : "bg-gray-300"
+            }`}
           >
-            <option value="jahre">Jahre</option>
-            <option value="monate">Monate</option>
-          </select>
-        </div>
-        {/*Zinseszins*/}
-        <hr className="border-black border-t opacity-50 my-2 col-span-3" />
-
-        <label htmlFor="zinseszins" className="inline-block">
-          Zinseszins
-        </label>
-        <div className="flex items-center gap-2 col-span-2">
-          <div className="flex items-center gap-1">
-            <input
-              type="radio"
-              id="ja"
-              name="janeinzinsansammlung"
-              value="Ja, Zinsansammlung"
-              onChange={handleChange}
-              checked={compoundInterest}
-              className="border rounded-sm text-right"
+            <div
+              className={`size-5 rounded-full bg-white shadow transition-transform duration-300 ${
+                compoundInterest ? "translate-x-5" : "translate-x-0"
+              }`}
             />
-            <label htmlFor="ja">Ja</label>
           </div>
-          <div className="flex items-center gap-1">
-            <input
-              type="radio"
-              id="nein"
-              name="janeinzinsansammlung"
-              value="Nein, Zinsauszahlung"
-              onChange={handleChange}
-              checked={!compoundInterest}
-              className="border rounded-sm text-right"
-            />
-            <label htmlFor="nein">Nein</label>
-          </div>
-        </div>
-        {/*Endkapital*/}
-        <hr className="border-black border-t opacity-50 my-2 col-span-3" />
-        <label htmlFor="endkapital" className="inline-block">
-          Endkapital
         </label>
-        <div className="flex gap-0.5 col-span-2">
-          <input
-            disabled
-            name="endkapital"
-            defaultValue={finalCapital}
-            type="number"
-            className="border rounded-md text-right text-teal-700 font-bold w-28"
-          />
-          <span>€</span>
-        </div>
-        <hr className="border-black border-t opacity-50 my-2 col-span-3" />
-        <div className="flex flex-col sm:flex-row gap-10">
-          <button className="btnrechnen" type="submit">
-            Rechnen
-          </button>
-          <button className="btnrechnen" onClick={downloadPdf}>
-            Generate PDF
-          </button>
-        </div>
-      </form>
+        <span className="flex h-5 items-center">
+          {compoundInterest ? "Ja, Zinsansammlung" : "Nein, Zinsauszahlung"}
+        </span>
+      </div>
 
-      {/*<ZinsrechnerTable {...userData} />*/}
-    </div>
+      <hr className="col-span-3 my-2 border-t border-black opacity-50" />
+
+      {/* Endkapital */}
+      <label htmlFor="endkapital" className="inline-block">
+        Endkapital
+      </label>
+      <div className="col-span-2 flex gap-0.5">
+        <input
+          disabled
+          name="endkapital"
+          defaultValue={finalCapital}
+          type="number"
+          className="w-44 rounded-md border text-right font-bold text-teal-700"
+        />
+        <span>€</span>
+      </div>
+      <hr className="col-span-3 my-2 border-t border-black opacity-50" />
+      <div className="flex flex-col gap-10 sm:flex-row">
+        <button className="btnrechnen" type="submit">
+          Rechnen
+        </button>
+        <button className="btnrechnen" onClick={downloadPdf}>
+          Generate PDF
+        </button>
+      </div>
+
+      {/* <ZinsrechnerTable {...userData} /> */}
+    </form>
   );
 };

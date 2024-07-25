@@ -5,7 +5,7 @@ updates:
     schedule:
       interval: 'monthly'
     reviewers:
-      - 'andron13'
+      - 'ptchom'
     commit-message:
       prefix: 'chore'
     groups:
