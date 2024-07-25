@@ -18,8 +18,6 @@ module.exports = {
   // Base config
   extends: [
     "eslint:recommended",
-    "plugin:tailwindcss/recommended",
-    "prettier",
   ],
 
   plugins: ["react", "@typescript-eslint", "prettier", "simple-import-sort", "tailwindcss"],
@@ -34,7 +32,11 @@ module.exports = {
         "plugin:react/jsx-runtime",
         "plugin:react-hooks/recommended",
         "plugin:jsx-a11y/recommended",
+        "plugin:tailwindcss/recommended",
+        "prettier",
+        "plugin:prettier/recommended"
       ],
+      parser: "@typescript-eslint/parser",
       settings: {
         react: {
           version: "detect",

@@ -62,6 +62,14 @@
   p {
     @apply my-2 text-justify lg:text-left;
   }
+
+  form {
+    @apply grid grid-cols-3 gap-1 mx-auto mb-5 bg-opacity-5 p-0.5 md:p-5 rounded-lg shadow-xl sm:text-xl border-2 border-gray-400;
+  }
+
+  input {
+    @apply text-right w-28 block border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-teal-500;
+  }
 }
 
 @layer components {

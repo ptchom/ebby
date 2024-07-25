@@ -17,7 +17,7 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <article className="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100">
+    <article className="bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-100">
       <h2 className="text-2xl font-semibold">
         Online-Rechner für Ihre optimale Finanzplanung
       </h2>

@@ -4,7 +4,7 @@ export default function Impressum(): ReactElement {
   return (
     <article className="mx-auto p-5">
       <h2>Impressum</h2>
-      <hr className="border-black border-t opacity-50 my-4" />
+      <hr className="my-4 border-t border-black opacity-50" />
       <h3>Angaben gemäß § 5 TMG:</h3>
       <h4>Betreiber und Verantwortlicher</h4>
       <address className="not-italic">
@@ -15,7 +15,7 @@ export default function Impressum(): ReactElement {
         <p>Email: omogilev@gmail.com</p>
         <p>Telegram: t.me/ptchom</p>
       </address>
-      <hr className="border-black border-t opacity-50 my-4" />
+      <hr className="my-4 border-t border-black opacity-50" />
 
       <h3>Haftungsausschluss</h3>
       <p>
@@ -42,7 +42,7 @@ export default function Impressum(): ReactElement {
         Verbraucherschlichtungsstelle bin ich nicht verpflichtet und nicht
         bereit.
       </p>
-      <hr className="border-black border-t opacity-50 my-4" />
+      <hr className="my-4 border-t border-black opacity-50" />
     </article>
   );
 }

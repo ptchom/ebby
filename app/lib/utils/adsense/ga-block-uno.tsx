@@ -7,7 +7,7 @@ export const GaBlockUno = () => {
         crossOrigin="anonymous"
       ></script>
       <ins
-        className="adsbygoogle"
+        className=""
         style={{ display: "block" }}
         data-ad-client="ca-pub-0567076807196284"
         data-ad-slot="6390812551"

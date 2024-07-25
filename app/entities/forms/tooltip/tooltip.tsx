@@ -19,7 +19,7 @@ export const Tooltip = ({ highlight = "?", text = test }: TooltipProps) => {
         onMouseLeave={() => setShow(false)}
         data-tooltip-target="tooltip-top"
         type="button"
-        className="border-2 rounded-md px-2"
+        className="rounded-md border-2 px-2"
       >
         {highlight}
       </button>
@@ -28,10 +28,10 @@ export const Tooltip = ({ highlight = "?", text = test }: TooltipProps) => {
         <div
           id="tooltip-top"
           role="tooltip"
-          className="absolute z-10 inline-block p-2 text font-medium text-black bg-white border rounded-md shadow-md tooltip"
+          className="absolute z-10 inline-block rounded-md border bg-white p-2 font-medium text-black shadow-md"
         >
           {tooltip}
-          <div className="tooltip-arrow" data-popper-arrow="Tooltip"></div>
+          <div className="" data-popper-arrow="Tooltip"></div>
         </div>
       )}
     </div>

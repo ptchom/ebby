@@ -7,7 +7,7 @@ export const Footer = (): ReactElement => {
     <p className="text-center">
       <Link
         to="/impressum"
-        className="text-white underline hover:text-gray-300 active:text-gray-500 transition-colors text-3xl"
+        className="text-3xl text-white underline transition-colors hover:text-gray-300 active:text-gray-500"
       >
         Impressum
       </Link>
