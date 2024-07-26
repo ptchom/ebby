@@ -15,22 +15,22 @@
   header,
   aside,
   main {
-    @apply bg-svg-background bg-opacity-70 border-gray-400 rounded-lg border-2 text-balance truncate;
+    @apply bg-svg-background bg-opacity-70 border-gray-400 rounded-lg border-2 text-balance ;
   }
 
   h1 {
-    @apply text-3xl 2xl:text-6xl xl:text-5xl;
+    @apply text-lg md:text-3xl 2xl:text-6xl xl:text-5xl;
   }
 
   h2 {
-    @apply text-3xl xl:text-3xl;
+    @apply text-lg md:text-3xl xl:text-3xl;
   }
 
   h3,
   h4,
   h5,
   h6 {
-    @apply text-2xl;
+    @apply text-base md:text-2xl;
   }
 
   h1,
@@ -52,7 +52,7 @@
 
   li,
   a {
-    @apply break-words lg:text-xl;
+    @apply break-words ;
   }
 
   footer {

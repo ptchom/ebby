@@ -5,7 +5,7 @@ import { Link } from "@remix-run/react";
 import { rechnerRoutes } from "~/lib/routes/naviUrls";
 
 export const Navigation = (): ReactElement => {
-  const linkClass = "py-2 inline-block text-blue-500 hover:text-blue-800";
+  const linkClass = "py-2 inline-block text-teal-800 hover:text-teal-600";
   const menu = rechnerRoutes
     .toSorted((a, b) => a.weight - b.weight)
     .map((route) => (
@@ -17,7 +17,7 @@ export const Navigation = (): ReactElement => {
     ));
   return (
     <nav>
-      <ul>
+      <ul className="list-none">
         {menu}
         <hr className="my-4 border-t border-black opacity-50" />
         {/*  <li>*/}
