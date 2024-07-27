@@ -170,7 +170,7 @@ export const ZinsrechnerForm = () => {
           disabled
           name="endkapital"
           defaultValue={finalCapital}
-          type="string"
+          type="number"
           className="w-44 rounded-md border text-right text-xl font-semibold text-red-800"
         />
         <span>€</span>
