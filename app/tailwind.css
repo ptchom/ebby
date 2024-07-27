@@ -5,7 +5,7 @@
 
 @layer base {
   body {
-    @apply mx-auto max-w-big;
+    @apply mx-auto max-w-screen-xl;
     @apply bg-svg-background bg-svg-pattern-topography;
     /*@apply text-xl;*/
     @apply flex flex-col md:grid md:grid-cols-12 md:gap-1 md:min-h-dvh md:grid-rows-[auto,1fr,auto] lg:gap-2 xl:gap-3 2xl:gap-4;
@@ -75,7 +75,7 @@
   }
 
   footer {
-    @apply p-2 md:p-5;
+    @apply p-0.5;
   }
 
   p {

@@ -32,13 +32,13 @@ export function Layout({ children }: { children: ReactNode }) {
         <header className="col-span-12 xl:col-span-8 xl:col-start-3">
           <Header />
         </header>
-        <aside className="hidden md:col-start-1 md:col-end-4 md:block lg:col-start-1 lg:col-end-4 xl:col-start-2 xl:col-end-4">
+        <aside className="hidden md:col-start-1 md:col-end-4 md:block lg:col-start-1 lg:col-end-4 xl:col-start-2 xl:col-end-5">
           <Aside />
         </aside>
-        <main className="md:col-span-9 md:col-start-4 xl:col-start-4 xl:col-end-12">
+        <main className="md:col-span-9 md:col-start-4 xl:col-start-5 xl:col-end-12">
           {children}
         </main>
-        <footer className="col-start-1 col-end-13 rounded-lg  bg-bg-footer bg-svg-pattern-footer text-white xl:col-start-3 xl:col-end-11">
+        <footer className="col-start-1 col-end-13 rounded-lg bg-bg-footer bg-svg-pattern-footer text-white xl:col-start-3 xl:col-end-11">
           <Footer />
         </footer>
         <ScrollRestoration />
