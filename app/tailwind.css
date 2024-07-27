@@ -15,11 +15,15 @@
   header,
   aside,
   main {
-    @apply bg-svg-background bg-opacity-70 border-gray-400 rounded-lg border-2 text-balance ;
+    @apply bg-svg-background bg-opacity-70 border-gray-400 rounded-lg border-2 text-balance;
+  }
+
+  header {
+    @apply mb-1 flex items-center justify-between gap-4 p-2 md:p-4 md:justify-center;
   }
 
   h1 {
-    @apply text-lg md:text-3xl 2xl:text-6xl xl:text-5xl;
+    @apply text-lg font-bold text-teal-800 md:text-3xl xl:text-4xl;
   }
 
   h2 {
@@ -52,7 +56,22 @@
 
   li,
   a {
-    @apply break-words ;
+    @apply break-words text-inherit;
+  }
+
+  a {
+    @apply underline py-2 inline-block;
+  }
+
+  a:hover {
+    @apply underline-offset-4;
+  }
+
+  a:focus {
+    @apply underline-offset-4;
+  }
+  a:active {
+    @apply underline-offset-4;
   }
 
   footer {
@@ -76,8 +95,16 @@
 }
 @layer utilities {
   .btnrechnen {
-    @apply bg-teal-500 hover:bg-teal-700 active:bg-teal-900;
-    @apply focus:ring-teal-600 focus:outline-none focus:ring-2 focus:ring-opacity-50;
+    @apply bg-red-800 hover:bg-red-500 active:bg-red-600;
+    @apply focus:ring-red-600 focus:outline-none focus:ring-2 focus:ring-opacity-50;
     @apply text-white font-bold py-1 px-2 rounded sm:min-w-48 w-48;
+  }
+
+  .footerLink {
+    @apply text-white underline transition-colors hover:text-gray-300 active:text-gray-500;
+  }
+
+  .menuLink {
+    @apply text-teal-800 hover:text-teal-500 focus:text-teal-500;
   }
 }

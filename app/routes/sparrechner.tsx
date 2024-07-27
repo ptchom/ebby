@@ -1,9 +1,13 @@
 import { ReactElement } from "react";
 
+import { SparrechnerForm } from "~/pages/rechner/sparrechner/sparrechner";
+
 export default function Sparrechner(): ReactElement {
   return (
     <article>
       <h2>Sparrechner</h2>
+
+      <SparrechnerForm />
       <p>
         Unser Sparrechner ist ein effektives Werkzeug zur Berechnung Ihrer
         potenziellen Ersparnisse, auf Basis verschiedener Variablen wie der

@@ -1,44 +1,82 @@
-import { ReactElement, useState } from "react";
+import {
+  KeyboardEvent,
+  ReactElement,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 
-import { Link } from "@remix-run/react";
-
-import { rechnerRoutes } from "~/lib/routes/naviUrls";
+import { Menu } from "~/entities/menu/menu";
 
 export const BurgerMenu = (): ReactElement => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
-  const linkClass = "py-2 inline-block text-teal-800 hover:text-teal-600";
 
-  const menu = rechnerRoutes
-    .toSorted((a, b) => a.weight - b.weight)
-    .map((route) => (
-      <li key={route.slug}>
-        <Link className={linkClass} to={`/${route.slug}`} title={route.title}>
-          {route.title}
-        </Link>
-      </li>
-    ));
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        closeMenu();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuRef]);
+
+  const BurgerButton = ({
+    icon,
+    onClick = toggleMenu,
+  }: {
+    icon: ReactElement;
+    onClick?: () => void;
+  }) => (
+    <button
+      className="text-teal-800 transition-transform hover:scale-110 hover:text-teal-600"
+      onClick={onClick}
+      aria-label="Toggle menu"
+    >
+      {icon}
+    </button>
+  );
+
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === "Escape") {
+      closeMenu();
+    }
+  };
 
   return (
-    <div className="relative md:hidden">
-      <button
-        className="text-teal-800 transition-transform hover:scale-110 hover:text-teal-600"
-        onClick={toggleMenu}
-        aria-label="Toggle menu"
-      >
-        {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-      </button>
-      <nav
-        className={`${
-          menuOpen ? "block" : "hidden"
-        } absolute right-10 top-0 z-[1000] mt-2 border border-teal-800 bg-white/95 p-2 shadow-lg md:p-5`}
-      >
-        <ul className="list-none">{menu}</ul>
-      </nav>
+    <div className="relative md:hidden" ref={menuRef}>
+      {menuOpen ? (
+        <nav className="absolute -top-5 right-2 z-[100] border border-teal-800 bg-white/95 p-2 shadow-lg md:p-5">
+          <div className="absolute right-2 top-2">
+            <BurgerButton icon={<FaTimes size={24} />} />
+          </div>
+          <ul
+            role="menu"
+            tabIndex={0}
+            className="list-none text-base font-semibold"
+            onClick={closeMenu}
+            onKeyDown={handleKeyDown}
+          >
+            <Menu />
+          </ul>
+        </nav>
+      ) : (
+        <BurgerButton icon={<FaBars size={24} />} />
+      )}
     </div>
   );
 };

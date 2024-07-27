@@ -29,7 +29,7 @@ export function Layout({ children }: { children: ReactNode }) {
         <Links />
       </head>
       <body>
-        <header className="col-span-12 mb-1 xl:col-span-8 xl:col-start-3">
+        <header className="col-span-12 xl:col-span-8 xl:col-start-3">
           <Header />
         </header>
         <aside className="hidden md:col-start-1 md:col-end-4 md:block lg:col-start-1 lg:col-end-4 xl:col-start-2 xl:col-end-4">
