@@ -77,7 +77,7 @@ export const ZinsrechnerForm = () => {
           type="number"
           defaultValue={initialCapital}
           onChange={handleChange}
-          className=""
+          className="pr-0.5"
         />
         <span className="">€</span>
       </div>
@@ -94,7 +94,7 @@ export const ZinsrechnerForm = () => {
           step="0.001"
           defaultValue={interestRate}
           onChange={handleChange}
-          className="w-28 rounded-md border text-right"
+          className="w-28 rounded-md border pr-0.5 text-right"
         />
         <span className="">% p.a.</span>
       </div>
@@ -104,13 +104,13 @@ export const ZinsrechnerForm = () => {
       <label htmlFor="laufzeit" className="inline-block">
         Laufzeit
       </label>
-      <div className="col-span-2 flex gap-0.5 ">
+      <div className="col-span-2 flex gap-0.5">
         <input
           name="laufzeit"
           type="number"
           defaultValue={duration}
           onChange={handleChange}
-          className="w-28 rounded-md border text-right"
+          className="w-28 rounded-md border pr-0.5 text-right"
         />
         <select
           id="laufzeit"
@@ -126,7 +126,7 @@ export const ZinsrechnerForm = () => {
 
       {/* Zinseszins */}
 
-      <label htmlFor="zinseszins" className="inline-block">
+      <label htmlFor="zinseszins" className="flex self-center">
         Zinseszins
       </label>
       <div className="col-span-2 flex items-center gap-0.5">
@@ -161,7 +161,7 @@ export const ZinsrechnerForm = () => {
       <hr className="col-span-3 my-2 border-t border-black opacity-50" />
 
       {/* Endkapital */}
-      <label htmlFor="endkapital" className="inline-block">
+      <label htmlFor="endkapital" className="flex self-center">
         Endkapital
       </label>
 
@@ -171,9 +171,9 @@ export const ZinsrechnerForm = () => {
           name="endkapital"
           defaultValue={finalCapital}
           type="number"
-          className="w-44 rounded-md border text-right text-xl font-semibold text-red-800"
+          className="w-44 rounded-md border pr-0.5 text-right text-2xl font-bold text-red-800"
         />
-        <span>€</span>
+        <span className="flex self-center text-xl">€</span>
       </div>
       <hr className="col-span-3 my-2 border-t border-black opacity-50" />
       <div className="flex flex-col gap-10 sm:flex-row">
