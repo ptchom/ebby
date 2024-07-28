@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import { Link } from "@remix-run/react";
 
-import { rechnerRoutes } from "~/lib/routes/naviUrls";
+import { rechnerRoutes } from "~/shared/routes/naviUrls";
 
 export const Menu: FC = () => {
   const menu = rechnerRoutes

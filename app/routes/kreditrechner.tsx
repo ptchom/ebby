@@ -1,7 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 
-import KreditrechnerForm from "~/pages/rechner/kreditrechner/kreditrechner-form";
-import { metaKreditrechner } from "~/pages/rechner/kreditrechner/meta-kreditrechner";
+import KreditrechnerForm from "~/widgets/rechner/kreditrechner/kreditrechner-form";
+import { metaKreditrechner } from "~/widgets/rechner/kreditrechner/meta-kreditrechner";
 
 export const meta: MetaFunction = () => {
   return metaKreditrechner;

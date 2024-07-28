@@ -1,4 +1,4 @@
-import { ZinsrechnerUserData } from "~/pages/rechner/zinsrechner-form/type";
+import { ZinsrechnerUserData } from "~/widgets/rechner/zinsrechner-form/type";
 
 export const calculateEndkapital = (props: ZinsrechnerUserData) => {
   const {

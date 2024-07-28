@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 
 import { Link } from "@remix-run/react";
 
-import { BurgerMenu } from "~/entities/burgerMenu/burgerMenu";
+import { BurgerMenu } from "~/features/burgerMenu/burgerMenu";
 
 export const Header = (): ReactElement => {
   return (

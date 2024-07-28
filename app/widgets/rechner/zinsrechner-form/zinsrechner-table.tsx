@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { ZinsrechnerUserData } from "~/pages/rechner/zinsrechner-form/type";
+import { ZinsrechnerUserData } from "~/widgets/rechner/zinsrechner-form/type";
 
 type YearData = {
   year: number;

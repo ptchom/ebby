@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 
 import { ImAufbau } from "~/entities/aside/im-aufbau";
 
-import { GaBlockUno } from "~/lib/utils/adsense/ga-block-uno";
+import { GaBlockUno } from "~/shared/adsense/ga-block-uno";
 
 import { Navigation } from "./navigation";
 

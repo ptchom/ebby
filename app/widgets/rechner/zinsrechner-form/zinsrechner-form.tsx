@@ -2,8 +2,8 @@ import { ChangeEvent, FormEvent, useState } from "react";
 
 import { pdf } from "@react-pdf/renderer";
 
-import { calculateEndkapital } from "~/lib/rechner/zinsrechner/calculate-zins";
-import { PdfDocument } from "~/lib/utils/pdf/pdf-document";
+import { PdfDocument } from "~/shared/pdf/pdf-document";
+import { calculateEndkapital } from "~/shared/rechner/zinsrechner/calculate-zins";
 
 import { ZinsrechnerUserData } from "./type";
 
@@ -167,7 +167,7 @@ export const ZinsrechnerForm = () => {
 
       <div className="col-span-2 flex gap-0.5">
         <input
-          disabled
+          readOnly
           name="endkapital"
           defaultValue={finalCapital}
           type="number"
