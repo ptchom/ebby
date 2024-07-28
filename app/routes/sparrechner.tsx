@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 
-import { SparrechnerForm } from "~/pages/rechner/sparrechner/sparrechner";
+import { SparrechnerForm } from "~/widgets/rechner/sparrechner/sparrechner";
 
 export default function Sparrechner(): ReactElement {
   return (

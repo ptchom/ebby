@@ -1,6 +1,6 @@
 import { Document, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
 
-import { ZinsrechnerUserData } from "~/pages/rechner/zinsrechner-form/type";
+import { ZinsrechnerUserData } from "~/widgets/rechner/zinsrechner-form/type";
 
 const styles = StyleSheet.create({
   page: {
