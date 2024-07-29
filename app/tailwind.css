@@ -6,7 +6,6 @@
 @layer base {
   body {
     @apply mx-auto max-w-screen-xl;
-    @apply bg-svg-background bg-svg-pattern-topography;
     /*@apply text-xl;*/
     @apply flex flex-col md:grid md:grid-cols-12 md:gap-1 md:min-h-dvh md:grid-rows-[auto,1fr,auto] lg:gap-2 xl:gap-3 2xl:gap-4;
     @apply font-system;
@@ -15,7 +14,7 @@
   header,
   aside,
   main {
-    @apply bg-svg-background bg-opacity-70 border-gray-400 rounded-lg border-2 text-balance;
+    @apply border-gray-400 rounded-lg border-2 text-balance;
   }
 
   header {
@@ -70,6 +69,7 @@
   a:focus {
     @apply underline-offset-4;
   }
+
   a:active {
     @apply underline-offset-4;
   }
@@ -83,7 +83,7 @@
   }
 
   form {
-    @apply grid grid-cols-3 gap-1 mx-auto mb-5 bg-opacity-5 p-0.5 md:p-5 rounded-lg shadow-xl sm:text-xl border-2 border-gray-400;
+    @apply grid grid-cols-3 gap-1 mx-auto mb-5 p-0.5 md:p-5 rounded-lg shadow-xl sm:text-xl border-2 border-gray-400;
   }
 
   input {
@@ -92,7 +92,27 @@
 }
 
 @layer components {
+  body {
+    @apply bg-repeat w-full h-full ;
+    /*@apply heropattern-graphpaper-gray-300;*/
+    @apply bg-svg-background heropattern-topography-gray-300;
+    /*@apply heropattern-overlappingdiamonds-gray-300;*/
+  }
+    header,
+    aside,
+    main {
+        @apply bg-svg-background bg-opacity-60;
+    }
+    footer {
+        @apply bg-bg-footer heropattern-overlappingdiamonds-black/90 ;
+    }
+    form {
+        @apply bg-svg-background bg-opacity-60;
+    }
+    article {
+    }
 }
+
 @layer utilities {
   .btnrechnen {
     @apply bg-red-800 hover:bg-red-500 active:bg-red-600;
