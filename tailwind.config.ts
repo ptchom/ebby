@@ -11,7 +11,7 @@ export default {
         big: "1800px",
       },
       colors: {
-        "bg-footer": "hsl(0,0%,20%)",
+        "bg-footer": "hsl(0,0%,15%)",
         // 'bg-footer': '#84808a',
         "svg-background": "hsl(0, 0%, 96%)",
       },
