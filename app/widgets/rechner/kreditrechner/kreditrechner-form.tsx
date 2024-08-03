@@ -44,9 +44,9 @@ function KreditrechnerForm(): JSX.Element {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col justify-start gap-5"
+      className="flex flex-col justify-start gap-6"
     >
-      <div className="flex flex-col gap-0 border-2 border-gray-300 p-4">
+      <div className="flex flex-col gap-1">
         <label htmlFor="amount">Kreditbetrag (€)</label>
         <div className="flex gap-x-6">
           <RangeInput
@@ -55,12 +55,13 @@ function KreditrechnerForm(): JSX.Element {
             min={0}
             max={100000}
             step={500}
+            unitType={"€"}
           />
-          <NumberInput name="amount" control={control} />
+          <NumberInput name="amount" control={control} unitType={"€"} />
         </div>
       </div>
 
-      <div>
+      <div className="flex flex-col gap-1 ">
         <label htmlFor="duration">Laufzeit (Monate)</label>
         <div className="flex gap-x-6">
           <RangeInput
@@ -71,11 +72,11 @@ function KreditrechnerForm(): JSX.Element {
             step={6}
             unitType={"Monate"}
           />
-          <NumberInput name="duration" control={control} />
+          <NumberInput name="duration" control={control} unitType={"Monate"} />
         </div>
       </div>
 
-      <div>
+      <div className="flex flex-col gap-1 ">
         <label htmlFor="interestRate">Effektiven Jahreszins (%)</label>
         <div className="flex gap-x-6">
           <RangeInput
@@ -86,18 +87,24 @@ function KreditrechnerForm(): JSX.Element {
             step={0.1}
             unitType={"%"}
           />
-          <NumberInput name="interestRate" control={control} />
+          <NumberInput name="interestRate" control={control} unitType={"%"} />
         </div>
       </div>
 
-      <label htmlFor="result">Das brauchen Sie im Monat:</label>
-      <div id="result">
-        {amount && duration && interestRate && (
-          <span>
-            {calculateMonthlyPayment(amount, duration, interestRate).toFixed(2)}{" "}
-            €
-          </span>
-        )}
+      <div className="mr-auto flex max-w-xs flex-col gap-2 border-2 border-red-500 p-2">
+        <label htmlFor="result" className="text-lg font-medium">
+          Das zahlen Sie monatlich an die Bank zurück, plus Versicherung:
+        </label>
+        <div id="result">
+          {amount && duration && interestRate && (
+            <span className="text-5xl font-semibold text-red-600">
+              {calculateMonthlyPayment(amount, duration, interestRate).toFixed(
+                2,
+              )}{" "}
+              €
+            </span>
+          )}
+        </div>
       </div>
     </form>
   );

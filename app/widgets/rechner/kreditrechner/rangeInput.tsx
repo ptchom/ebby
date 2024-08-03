@@ -2,7 +2,7 @@ import { Control, Controller } from "react-hook-form";
 
 type RangeInputProps = {
   name: string;
-  // eslint-disable-next-line
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   control: Control<any>;
   min: number;
   max: number;
@@ -19,7 +19,7 @@ export const RangeInput = ({
   unitType = "€",
 }: RangeInputProps) => {
   return (
-    <div className="relative flex w-full flex-col items-center rounded-md border border-gray-200 bg-amber-200">
+    <div className="relative flex w-2/3 flex-col items-center">
       <Controller
         name={name}
         control={control}
@@ -32,19 +32,14 @@ export const RangeInput = ({
               max={max}
               step={step}
               {...field}
-              className="mt-6 w-full"
+              className="mb-2 w-full bg-teal-200 accent-teal-600"
             />
-            <div className="relative mt-8 flex w-full justify-between">
-              {[...Array(7)].map((_, i) => (
-                <span key={i} className="h-4 w-0.5 bg-gray-400"></span>
-              ))}
-            </div>
-            <div className="absolute mt-10 flex w-full justify-between">
+            <div className="flex w-full justify-between text-sm text-teal-600">
               <span>
                 {min} {unitType}
               </span>
               <span>
-                {max / 2} {unitType}
+                {(min + max) / 2} {unitType}
               </span>
               <span>
                 {max} {unitType}
