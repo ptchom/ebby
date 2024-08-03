@@ -42,6 +42,11 @@ gtag('config', 'G-6L808W37HG');
 `,
           }}
         />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0567076807196284"
+          crossOrigin="anonymous"
+        ></script>
       </head>
       <body>
         <header className="col-span-12 xl:col-span-8 xl:col-start-3">
