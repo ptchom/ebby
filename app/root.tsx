@@ -1,3 +1,4 @@
+// root.tsx
 import { ReactNode } from "react";
 
 import type { LinksFunction } from "@remix-run/node";
@@ -27,26 +28,7 @@ export function Layout({ children }: { children: ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-6L808W37HG"
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}   
-gtag('js', new Date());
-
-gtag('config', 'G-6L808W37HG');
-`,
-          }}
-        />
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0567076807196284"
-          crossOrigin="anonymous"
-        ></script>
+        <GoogleScripts />
       </head>
       <body>
         <header className="col-span-12 xl:col-span-8 xl:col-start-3">
@@ -70,4 +52,30 @@ gtag('config', 'G-6L808W37HG');
 
 export default function App() {
   return <Outlet />;
+}
+
+function GoogleScripts() {
+  return (
+    <>
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-6L808W37HG"
+      ></script>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-6L808W37HG');
+          `,
+        }}
+      />
+      <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0567076807196284"
+        crossOrigin="anonymous"
+      ></script>
+    </>
+  );
 }
