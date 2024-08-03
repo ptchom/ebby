@@ -1,3 +1,4 @@
+// numberInput.tsx
 import { Control, Controller } from "react-hook-form";
 
 type NumberInputProps = {

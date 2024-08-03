@@ -1,3 +1,5 @@
+// rangeInput.tsx
+
 import { Control, Controller } from "react-hook-form";
 
 type RangeInputProps = {
@@ -7,7 +9,7 @@ type RangeInputProps = {
   min: number;
   max: number;
   step: number;
-  unitType?: string;
+  unitType: string;
 };
 
 export const RangeInput = ({
@@ -16,10 +18,10 @@ export const RangeInput = ({
   min,
   max,
   step,
-  unitType = "€",
+  unitType,
 }: RangeInputProps) => {
   return (
-    <div className="relative flex w-2/3 flex-col items-center">
+    <div className="relative flex w-full flex-col items-center md:w-2/3">
       <Controller
         name={name}
         control={control}
