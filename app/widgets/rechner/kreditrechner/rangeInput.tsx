@@ -7,11 +7,19 @@ type RangeInputProps = {
   min: number;
   max: number;
   step: number;
+  unitType?: string;
 };
 
-const RangeInput = ({ name, control, min, max, step }: RangeInputProps) => {
+export const RangeInput = ({
+  name,
+  control,
+  min,
+  max,
+  step,
+  unitType = "€",
+}: RangeInputProps) => {
   return (
-    <div className="relative flex w-full flex-col items-center">
+    <div className="relative flex w-full flex-col items-center rounded-md border border-gray-200 bg-amber-200">
       <Controller
         name={name}
         control={control}
@@ -32,9 +40,15 @@ const RangeInput = ({ name, control, min, max, step }: RangeInputProps) => {
               ))}
             </div>
             <div className="absolute mt-10 flex w-full justify-between">
-              <span>{min} €</span>
-              <span>{max / 2} €</span>
-              <span>{max} €</span>
+              <span>
+                {min} {unitType}
+              </span>
+              <span>
+                {max / 2} {unitType}
+              </span>
+              <span>
+                {max} {unitType}
+              </span>
             </div>
           </>
         )}
@@ -42,5 +56,3 @@ const RangeInput = ({ name, control, min, max, step }: RangeInputProps) => {
     </div>
   );
 };
-
-export default RangeInput;
