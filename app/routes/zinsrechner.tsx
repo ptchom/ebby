@@ -3,11 +3,11 @@ import { ReactElement } from "react";
 import { MetaFunction } from "@remix-run/node";
 
 import { contentKreditrechner } from "~/widgets/rechner/kreditrechner/content-kreditrechner";
-import { metaKreditrechner } from "~/widgets/rechner/kreditrechner/meta-kreditrechner";
 import { ZinsrechnerForm } from "~/widgets/rechner/zinsrechner-form";
+import { metaZinsrechner } from "~/widgets/rechner/zinsrechner-form/meta-zinsrechner";
 
 export const meta: MetaFunction = () => {
-  return metaKreditrechner;
+  return metaZinsrechner;
 };
 
 export default function Zinsrechner(): ReactElement {

@@ -3,7 +3,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 
 import { currentYear } from "~/shared/date/currentYear";
 
-import { ResultIncomeTaxForm } from "./ResultEinkommensteuerrechnerForm";
+import { ResultIncomeTaxForm } from "./";
 
 interface Inputs {
   yearlyIncome: number;

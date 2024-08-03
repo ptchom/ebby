@@ -1,6 +1,13 @@
 import { ReactElement } from "react";
 
+import { MetaFunction } from "@remix-run/node";
+
+import { metaSparrechner } from "~/widgets/rechner/sparrechner/meta-sparrechner";
 import { SparrechnerForm } from "~/widgets/rechner/sparrechner/sparrechner";
+
+export const meta: MetaFunction = () => {
+  return metaSparrechner;
+};
 
 export default function Sparrechner(): ReactElement {
   return (
