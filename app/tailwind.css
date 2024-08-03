@@ -94,24 +94,24 @@
 @layer components {
   /*bg with svg*/
   body {
-    @apply bg-repeat w-full h-full ;
+    @apply bg-repeat w-full h-full;
     /*@apply heropattern-graphpaper-gray-300;*/
     @apply bg-svg-background heropattern-topography-gray-300;
     /*@apply heropattern-overlappingdiamonds-gray-300;*/
   }
-    header,
-    aside,
-    main {
-        @apply bg-svg-background bg-opacity-60;
-    }
-    footer {
-        @apply bg-bg-footer heropattern-topography-white/10 ;
-    }
-    form {
-        /*@apply bg-svg-background bg-opacity-60;*/
-    }
-    article {
-    }
+  header,
+  aside,
+  main {
+    @apply bg-svg-background bg-opacity-60;
+  }
+  footer {
+    @apply bg-bg-footer heropattern-topography-white/10;
+  }
+  form {
+    /*@apply bg-svg-background bg-opacity-60;*/
+  }
+  article {
+  }
 }
 
 @layer utilities {
