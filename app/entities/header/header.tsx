@@ -9,9 +9,9 @@ export const Header = (): ReactElement => {
     <>
       <h1>
         <Link to="/" title="http://eb.by">
-          EB.BY
+          Exakte Berechnung
         </Link>{" "}
-        - online rechner für jeden Geschmack
+        - EB.BY
       </h1>
       <BurgerMenu />
     </>
