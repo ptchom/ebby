@@ -1,13 +1,5 @@
 import { ReactElement } from "react";
 
-import { MetaFunction } from "@remix-run/node";
-
-import { metaKreditrechner } from "~/widgets/rechner/kreditrechner/meta-kreditrechner";
-
-export const meta: MetaFunction = () => {
-  return metaKreditrechner;
-};
-
 export default function Contact(): ReactElement {
   return (
     <article>

@@ -1,7 +1,7 @@
 import { WEBSITE_API } from "~/shared/config/api";
 import { metatags } from "~/shared/seo/meta-semantic";
 
-export const metaKreditrechner = [
+export const loanCalculatorMeta = [
   { title: "Kreditrechner" },
   {
     name: metatags.description,

@@ -1,13 +1,6 @@
 import { JSX } from "react";
 
-interface KreditrechnerErgebnisseProps {
-  amount: number;
-  duration: number;
-  interestRate: number;
-  monthlyPayment: number;
-  overpayment: number;
-  totalPayment: number;
-}
+import { KreditrechnerErgebnisseProps } from "./types";
 
 export function KreditrechnerErgebnisse(
   props: KreditrechnerErgebnisseProps,

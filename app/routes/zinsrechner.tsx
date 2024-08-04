@@ -2,8 +2,8 @@ import { ReactElement } from "react";
 
 import { MetaFunction } from "@remix-run/node";
 
-import { contentKreditrechner } from "~/widgets/rechner/kreditrechner/content-kreditrechner";
 import { ZinsrechnerForm } from "~/widgets/rechner/zinsrechner-form";
+import { contentZinsrechner } from "~/widgets/rechner/zinsrechner-form/content-zinsrechner";
 import { metaZinsrechner } from "~/widgets/rechner/zinsrechner-form/meta-zinsrechner";
 
 export const meta: MetaFunction = () => {
@@ -18,7 +18,7 @@ export default function Zinsrechner(): ReactElement {
       </header>
       <ZinsrechnerForm />
       <article
-        dangerouslySetInnerHTML={{ __html: contentKreditrechner.content }}
+        dangerouslySetInnerHTML={{ __html: contentZinsrechner.content }}
       />
       <p>Berechnungssystem für Zinsen auf Einmalanlagen</p>
     </>

@@ -1,14 +1,8 @@
-// numberInput.tsx
-import { Control, Controller } from "react-hook-form";
+import { Controller } from "react-hook-form";
 
-type NumberInputProps = {
-  name: string;
-  // eslint-disable-next-line
-  control: Control<any>;
-  unitType?: string;
-};
+import { NumberInputProps } from "~/widgets/rechner/kreditrechner/types";
 
-export const NumberInput = ({
+export const NumericInput = ({
   name,
   control,
   unitType = "€",

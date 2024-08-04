@@ -1,24 +1,18 @@
-import { FC, JSX, useEffect, useState } from "react";
-import { Control, Controller, useForm } from "react-hook-form";
+import { JSX, useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 
+import { CustomField } from "~/widgets/rechner/kreditrechner/customField";
 import { KreditrechnerErgebnisse } from "~/widgets/rechner/kreditrechner/kreditrechnerErgebnisse";
+import { LoanFormInputs } from "~/widgets/rechner/kreditrechner/types";
 
-import { NumberInput, RangeInput } from "./";
-
-type Inputs = {
-  amount: number;
-  duration: number;
-  interestRate: number;
-};
-
-const defaultValues: Inputs = {
+const defaultValues: LoanFormInputs = {
   amount: 50000,
   duration: 60,
   interestRate: 6.9,
 };
 
-function KreditrechnerForm(): JSX.Element {
-  const { control, handleSubmit, watch } = useForm<Inputs>({
+export function LoanCalculatorForm(): JSX.Element {
+  const { control, handleSubmit, watch } = useForm<LoanFormInputs>({
     defaultValues,
   });
 
@@ -114,44 +108,3 @@ function KreditrechnerForm(): JSX.Element {
     </form>
   );
 }
-
-interface FieldProps {
-  title: string;
-  name: string;
-  control: Control<Inputs>;
-  min: number;
-  max: number;
-  step: number;
-  unitType: string;
-}
-
-const CustomField: FC<FieldProps> = ({
-  title,
-  name,
-  control,
-  min,
-  max,
-  step,
-  unitType,
-}) => {
-  return (
-    <div className="flex flex-col gap-1">
-      <label htmlFor={name} className="text-base font-medium">
-        {title}
-      </label>
-      <div className="block gap-x-6 md:flex">
-        <RangeInput
-          name={name}
-          control={control}
-          min={min}
-          max={max}
-          step={step}
-          unitType={unitType}
-        />
-        <NumberInput name={name} control={control} unitType={unitType} />
-      </div>
-    </div>
-  );
-};
-
-export default KreditrechnerForm;

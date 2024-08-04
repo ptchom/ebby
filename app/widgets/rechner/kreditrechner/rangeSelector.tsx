@@ -1,18 +1,8 @@
-// rangeInput.tsx
+import { Controller } from "react-hook-form";
 
-import { Control, Controller } from "react-hook-form";
+import { RangeInputProps } from "~/widgets/rechner/kreditrechner/types";
 
-type RangeInputProps = {
-  name: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  control: Control<any>;
-  min: number;
-  max: number;
-  step: number;
-  unitType: string;
-};
-
-export const RangeInput = ({
+export const RangeSelector = ({
   name,
   control,
   min,
