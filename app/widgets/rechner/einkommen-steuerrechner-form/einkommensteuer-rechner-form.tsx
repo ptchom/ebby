@@ -12,7 +12,7 @@ interface Inputs {
   year: number;
 }
 
-export const EinkommensteuerrechnerForm = () => {
+export const EinkommensteuerRechnerForm = () => {
   const [formData, setFormData] = useState<Inputs | null>(null);
 
   const defaultValues = {

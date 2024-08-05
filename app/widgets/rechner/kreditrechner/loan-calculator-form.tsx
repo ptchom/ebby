@@ -67,7 +67,7 @@ export function LoanCalculatorForm(): JSX.Element {
   }, [amount, duration, interestRate]);
 
   return (
-    <form className="flex flex-col justify-start gap-6">
+    <form className="mx-auto mb-5 flex flex-col justify-start gap-1 rounded-lg p-1 shadow-xl sm:text-xl md:p-5">
       <CustomField
         title="Kreditbetrag"
         name="amount"

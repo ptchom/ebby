@@ -180,9 +180,10 @@ export const ZinsrechnerForm = () => {
         <button className="btnrechnen" type="submit">
           Rechnen
         </button>
-        <button className="btnrechnen" onClick={downloadPdf}>
-          Generate PDF
-        </button>
+        {/*TODO: Add PDF generation*/}
+        {/*<button className="btnrechnen" onClick={downloadPdf}>*/}
+        {/*  Generate PDF*/}
+        {/*</button>*/}
       </div>
 
       {/* <ZinsrechnerTable {...userData} /> */}
