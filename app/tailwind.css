@@ -8,13 +8,7 @@
     @apply mx-auto max-w-screen-xl;
     /*@apply text-xl;*/
     @apply flex flex-col md:grid md:grid-cols-12 md:gap-1 md:min-h-dvh md:grid-rows-[auto,1fr,auto] lg:gap-2 xl:gap-3 2xl:gap-4;
-    @apply font-system;
-  }
-
-  header,
-  aside,
-  main {
-    @apply border-gray-400 rounded-lg border-2 text-balance;
+    @apply font-system text-pretty;
   }
 
   header {
@@ -79,11 +73,11 @@
   }
 
   p {
-    @apply my-2 text-justify lg:text-left;
+    @apply my-1;
   }
 
   form {
-    @apply grid grid-cols-3 gap-1 mx-auto mb-5 p-0.5 md:p-5 rounded-lg shadow-xl sm:text-xl border-2 border-gray-400;
+    @apply grid grid-cols-3 gap-1 mx-auto mb-5 p-1 md:p-5 rounded-lg shadow-xl sm:text-xl;
   }
 
   input {
@@ -99,17 +93,21 @@
     @apply bg-svg-background heropattern-topography-gray-300;
     /*@apply heropattern-overlappingdiamonds-gray-300;*/
   }
+
   header,
   aside,
   main {
     @apply bg-svg-background bg-opacity-60;
   }
+
   footer {
     @apply bg-bg-footer heropattern-topography-white/10;
   }
+
   form {
     /*@apply bg-svg-background bg-opacity-60;*/
   }
+
   article {
   }
 }
@@ -128,4 +126,7 @@
   .menuLink {
     @apply text-teal-800 hover:text-teal-500 focus:text-teal-500;
   }
+    .mainBorder{
+        @apply rounded-lg border-2 border-gray-400;
+    }
 }
