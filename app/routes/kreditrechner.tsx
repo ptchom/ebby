@@ -18,6 +18,7 @@ export default function Kreditrechner() {
       </header>
       <LoanCalculatorForm />
       <div
+        className="text-lg leading-relaxed"
         dangerouslySetInnerHTML={{ __html: loanCalculatorContent.content }}
       />
     </section>

@@ -1,8 +1,8 @@
 import { JSX, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
-import { CustomField } from "~/widgets/rechner/kreditrechner/customField";
-import { KreditrechnerErgebnisse } from "~/widgets/rechner/kreditrechner/kreditrechnerErgebnisse";
+import { CustomField } from "~/widgets/rechner/kreditrechner/custom-field";
+import { KreditrechnerErgebnisse } from "~/widgets/rechner/kreditrechner/kreditrechner-ergebnisse";
 import { LoanFormInputs } from "~/widgets/rechner/kreditrechner/types";
 
 const defaultValues: LoanFormInputs = {

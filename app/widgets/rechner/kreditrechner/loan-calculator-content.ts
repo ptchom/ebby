@@ -1,7 +1,5 @@
 export const loanCalculatorContent = {
   content:
-    "<h2>Kreditrechner!!!</h2>\n" +
-    "\n" +
     "<p>Der Kreditrechner ist ein unverzichtbares Werkzeug, um die wichtigsten Parameter Ihres Kredits zu berechnen. Geben Sie einfach den Kreditbetrag, die Laufzeit in Monaten und den Zinssatz ein, und der Kreditrechner liefert Ihnen die monatliche Rate, die Gesamtkosten und die insgesamt gezahlten Zinsen.</p>\n" +
     "\n" +
     "<h3>Eingabemöglichkeiten</h3>\n" +
@@ -14,7 +12,7 @@ export const loanCalculatorContent = {
     "\n" +
     "<h3>Beispiel</h3>\n" +
     "\n" +
-    "<p>Wenn Sie 50.000 € zu einem Zinssatz von 6,9 % für 60 Monate leihen, zahlen Sie monatlich 987,70 € und insgesamt 59.262,16 € über die gesamte Laufzeit. Die Gesamtzinsen betragen 9.262,16 €.</p>\n" +
+    "<p>Wenn Sie 100000€ zu einem Zinssatz von 5.1% für 120 Monate leihen, zahlen Sie monatlich 1065.55€ und insgesamt 127865.98€ über die gesamte Laufzeit. Die Gesamtzinsen, die Sie zahlen, betragen 27865.98€.</p>\n" +
     "\n" +
     "<h3>Stichworte</h3>\n" +
     "\n" +

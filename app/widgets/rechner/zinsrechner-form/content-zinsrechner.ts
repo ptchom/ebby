@@ -1,7 +1,5 @@
 export const contentZinsrechner = {
   content:
-    "<h2>Zinsrechner!!!</h2>\n" +
-    "\n" +
     "<p>Der Zinsrechner ist ein mächtiges Werkzeug, mit dem Sie die wichtigsten Parameter Ihrer Geldanlage ermitteln können. Egal, ob Sie wissen möchten, wie hoch Ihr Anfangskapital sein muss, wie lange Sie sparen müssen, welchen Zinssatz Sie erzielen können oder wie hoch Ihr Endkapital inklusive Zinsen sein wird - der Zinsrechner liefert Ihnen die Antworten.</p>\n" +
     "\n" +
     "<h3>Eingabemöglichkeiten</h3>\n" +
