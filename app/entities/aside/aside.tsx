@@ -2,8 +2,6 @@ import { ReactElement } from "react";
 
 import { ImAufbau } from "~/entities/aside/im-aufbau";
 
-import { GaBlockUno } from "~/shared/adsense/ga-block-uno";
-
 import { Navigation } from "./navigation";
 
 export const Aside = (): ReactElement => {
