@@ -6,3 +6,5 @@ node_modules
 .env
 .idea
 devtools
+test-results
+playwright-report
