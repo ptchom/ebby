@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { Control } from "react-hook-form";
+import { Control, FieldValues } from "react-hook-form";
 
 export type LoanFormInputs = {
   amount: number;
@@ -28,7 +27,7 @@ export interface KreditrechnerErgebnisseProps {
 
 export type RangeInputProps = {
   name: string;
-  control: Control<any>;
+  control: Control<FieldValues>;
   min: number;
   max: number;
   step: number;
@@ -37,6 +36,6 @@ export type RangeInputProps = {
 
 export type NumberInputProps = {
   name: string;
-  control: Control<any>;
+  control: Control<FieldValues>;
   unitType?: string;
 };
