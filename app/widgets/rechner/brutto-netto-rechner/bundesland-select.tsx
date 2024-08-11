@@ -8,21 +8,31 @@ import { BundeslandSelectProps } from "~/widgets/rechner/brutto-netto-rechner/ty
 export const BundeslandSelect: FC<BundeslandSelectProps> = ({ control }) => {
   return (
     <>
+      <label htmlFor="Bundesland" className="inline-block">
+        Bundesland
+      </label>
       <Controller
         name="Bundesland"
         control={control}
-        render={({ field }) => (
-          <select
-            {...field}
-            className="w-2/3 rounded-md border px-3 py-1 text-base"
-          >
-            <option value="">Bitte wählen Sie Ihr Bundesland</option>
-            {Object.keys(bundeslaender).map((key) => (
-              <option key={key} value={key}>
-                {bundeslaender[key].name}
-              </option>
-            ))}
-          </select>
+        render={({ field, fieldState }) => (
+          <>
+            <select
+              {...field}
+              className="w-2/3 rounded-md border px-3 py-1 text-base"
+            >
+              {Object.keys(bundeslaender).map((key) => (
+                <option key={key} value={key}>
+                  {bundeslaender[key].name}
+                </option>
+              ))}
+            </select>
+            {/*  Ошибки*/}
+            {fieldState.error && (
+              <span className="text-sm text-red-500">
+                {fieldState.error.message}
+              </span>
+            )}
+          </>
         )}
       />
     </>

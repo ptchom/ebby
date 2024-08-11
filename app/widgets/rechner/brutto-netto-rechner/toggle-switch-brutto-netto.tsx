@@ -1,11 +1,7 @@
 import { FC } from "react";
-import { Control, Controller } from "react-hook-form";
+import { Controller } from "react-hook-form";
 
-interface ToggleSwitchProps {
-  name: string;
-  label: string;
-  control: Control<any>; // Уточните тип в зависимости от вашей формы
-}
+import { ToggleSwitchProps } from "~/widgets/rechner/brutto-netto-rechner/type";
 
 export const ToggleSwitchBruttoNetto: FC<ToggleSwitchProps> = ({
   name,
