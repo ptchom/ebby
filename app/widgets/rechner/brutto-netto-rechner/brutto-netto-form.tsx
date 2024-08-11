@@ -1,35 +1,45 @@
 import { JSX, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-import { FormDataInputs } from "./type";
+import { FormDataInputs, LohnPeriod, ResultsDisplayProps } from "./type";
 import {
   BundeslandSelect,
   EinkommenInput,
   KinderInput,
   ResultsDisplay,
   SteuerklasseButtonRow,
-  ToggleSwitchBruttoNetto,
+  ToggleSwitchKirchensteuer,
 } from "./";
 
 export const BruttoNettoForm = (): JSX.Element => {
-  const { control, handleSubmit, setValue } = useForm<FormDataInputs>({
+  const { control, watch, handleSubmit, setValue } = useForm<FormDataInputs>({
     defaultValues: {
-      Einkommen: 0,
-      Bundesland: "Berlin",
+      nettoEinkommen: 0,
+      bundesland: "Berlin",
       kirchensteuer: false,
       krankenversicherung: false,
-      Kinder: 0,
+      kinderfreiBetrag: 0,
     },
   });
+
   const [formData, setFormData] = useState<FormDataInputs | null>(null);
-  const [period, setPeriod] = useState<string>("Monatlich");
+  const [period, setPeriod] = useState<LohnPeriod>(LohnPeriod.Monat);
+  const [resultData, setResultData] = useState<ResultsDisplayProps>({
+    bruttoEinkommen: 50000,
+    rentenVersicherungBetrag: 18.6,
+    krankenVersicherungBetrag: 15.8,
+    lohnsteuerBetrag: 4,
+    pflegeVersicherungBetrag: 3.4,
+    arbeitslosenVersicherungBetrag: 2.6,
+    kirchensteuerBetrag: 0,
+  });
 
   const onSubmit: SubmitHandler<FormDataInputs> = (data) => {
-    data.Period = period;
+    data.lohnPeriod = period;
     setFormData(data);
   };
 
-  const handlePeriodChange = (newPeriod: string) => {
+  const handlePeriodChange = (newPeriod: LohnPeriod) => {
     setPeriod(newPeriod);
   };
 
@@ -49,11 +59,7 @@ export const BruttoNettoForm = (): JSX.Element => {
         <hr className="col-span-3 my-2 border-t border-black opacity-50" />
         <SteuerklasseButtonRow />
         <hr className="col-span-3 my-2 border-t border-black opacity-50" />
-        <ToggleSwitchBruttoNetto
-          name="kirchensteuer"
-          label="Kirchensteuer"
-          control={control}
-        />
+        <ToggleSwitchKirchensteuer control={control} />
         <hr className="col-span-3 my-2 border-t border-black opacity-50" />
         <KinderInput control={control} />
         <hr className="col-span-3 my-2 border-t border-black opacity-50" />{" "}
@@ -76,7 +82,7 @@ export const BruttoNettoForm = (): JSX.Element => {
       </form>
 
       <div className="flex w-1/2 flex-col sm:text-xl">
-        <ResultsDisplay formData={formData} />
+        <ResultsDisplay {...resultData} />
       </div>
     </section>
   );

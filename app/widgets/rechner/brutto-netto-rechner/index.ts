@@ -1,5 +1,5 @@
 export { ResultsDisplay } from "./results-display";
-export { ToggleSwitchBruttoNetto } from "./toggle-switch-brutto-netto";
+export { ToggleSwitchKirchensteuer } from "./toggle-switch-kirchensteuer";
 export { SteuerklasseButtonRow } from "./steuerklasse-button-row";
 export { BruttoNettoForm } from "./brutto-netto-form";
 export { contentBruttoNettoRechner } from "./content-brutto-netto-rechner";

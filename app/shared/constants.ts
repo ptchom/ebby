@@ -1,11 +1,13 @@
 type Bundesland = {
   name: string;
   insuranceRate: number;
+  kirchebetrag?: number;
 };
 
 export const bundeslaender: { [key: string]: Bundesland } = {
   BadenWuerttemberg: {
     name: "Baden-Württemberg",
+    kirchebetrag: 9,
     insuranceRate: 0.12,
   },
   Bayern: {

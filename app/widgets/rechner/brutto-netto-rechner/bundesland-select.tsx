@@ -3,16 +3,16 @@ import { Controller } from "react-hook-form";
 
 import { bundeslaender } from "~/shared/constants";
 
-import { BundeslandSelectProps } from "~/widgets/rechner/brutto-netto-rechner/type";
+import { BundeslandSelectProps } from "./type";
 
 export const BundeslandSelect: FC<BundeslandSelectProps> = ({ control }) => {
   return (
     <>
-      <label htmlFor="Bundesland" className="inline-block">
+      <label htmlFor="bundesland" className="inline-block">
         Bundesland
       </label>
       <Controller
-        name="Bundesland"
+        name="bundesland"
         control={control}
         render={({ field, fieldState }) => (
           <>

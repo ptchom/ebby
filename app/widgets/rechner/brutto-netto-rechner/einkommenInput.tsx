@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Controller } from "react-hook-form";
 
-import { EinkommenInputProps } from "./type"; // Импорт интерфейсов
+import { EinkommenInputProps, LohnPeriod } from "./type"; // Импорт интерфейсов
 
 export const EinkommenInput: FC<EinkommenInputProps> = ({
   control,
@@ -10,12 +10,12 @@ export const EinkommenInput: FC<EinkommenInputProps> = ({
 }) => {
   return (
     <div>
-      <label htmlFor="Einkommen" className="inline-block">
+      <label htmlFor="nettoEinkommen" className="inline-block">
         Einkommen (Ihr Bruttoeinkommen)
       </label>
       <div className="flex items-center gap-0.5">
         <Controller
-          name="Einkommen"
+          name="nettoEinkommen"
           control={control}
           render={({ field }) => (
             <input
@@ -31,18 +31,22 @@ export const EinkommenInput: FC<EinkommenInputProps> = ({
       <div className="flex justify-start gap-4">
         <button
           type="button"
-          onClick={() => handlePeriodChange("Monatlich")}
+          onClick={() => handlePeriodChange(LohnPeriod.Monat)}
           className={`rounded px-4 py-2 ${
-            period === "Monatlich" ? "bg-teal-500 text-white" : "bg-gray-200"
+            period === LohnPeriod.Monat
+              ? "bg-teal-500 text-white"
+              : "bg-gray-200"
           }`}
         >
           Monatlich
         </button>
         <button
           type="button"
-          onClick={() => handlePeriodChange("Jährlich")}
+          onClick={() => handlePeriodChange(LohnPeriod.Jahr)}
           className={`rounded px-4 py-2 ${
-            period === "Jährlich" ? "bg-teal-500 text-white" : "bg-gray-200"
+            period === LohnPeriod.Jahr
+              ? "bg-teal-500 text-white"
+              : "bg-gray-200"
           }`}
         >
           Jährlich

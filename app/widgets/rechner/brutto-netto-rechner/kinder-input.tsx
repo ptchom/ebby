@@ -1,19 +1,21 @@
 import { FC } from "react";
 import { Controller } from "react-hook-form";
 
-import { KinderinputsProps } from "~/widgets/rechner/brutto-netto-rechner/type";
+import { KinderinputsProps } from "./type";
 
 export const KinderInput: FC<KinderinputsProps> = ({ control }) => {
   return (
     <div>
-      KinderInput
+      <label htmlFor="kinderfreiBetrag" className="inline-block">
+        Anzahl der Kinder
+      </label>
       <Controller
-        name="Kinder"
+        name="kinderfreiBetrag"
         control={control}
         render={({ field }) => (
           <input
             {...field}
-            type="number" // Поле ввода для числа
+            type="number"
             placeholder="Anzahl der Kinder"
             className="border p-2"
           />
