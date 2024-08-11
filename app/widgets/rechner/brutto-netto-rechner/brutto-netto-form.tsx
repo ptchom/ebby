@@ -15,7 +15,7 @@ export const BruttoNettoForm = (): JSX.Element => {
   const { control, handleSubmit, setValue } = useForm<FormDataInputs>({
     defaultValues: {
       Einkommen: 0,
-      Bundesland: "Bayern",
+      Bundesland: "Berlin",
       kirchensteuer: false,
       krankenversicherung: false,
       Kinder: 0,

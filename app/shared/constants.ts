@@ -4,67 +4,67 @@ type Bundesland = {
 };
 
 export const bundeslaender: { [key: string]: Bundesland } = {
-  badenWuerttemberg: {
+  BadenWuerttemberg: {
     name: "Baden-Württemberg",
     insuranceRate: 0.12,
   },
-  bayern: {
+  Bayern: {
     name: "Bayern",
     insuranceRate: 0.11,
   },
-  berlin: {
+  Berlin: {
     name: "Berlin",
     insuranceRate: 0.14,
   },
-  brandenburg: {
+  Brandenburg: {
     name: "Brandenburg",
     insuranceRate: 0.13,
   },
-  bremen: {
+  Bremen: {
     name: "Bremen",
     insuranceRate: 0.1,
   },
-  hamburg: {
+  Hamburg: {
     name: "Hamburg",
     insuranceRate: 0.12,
   },
-  hessen: {
+  Hessen: {
     name: "Hessen",
     insuranceRate: 0.11,
   },
-  mecklenburgVorpommern: {
+  MecklenburgVorpommern: {
     name: "Mecklenburg-Vorpommern",
     insuranceRate: 0.12,
   },
-  niedersachsen: {
+  Niedersachsen: {
     name: "Niedersachsen",
     insuranceRate: 0.11,
   },
-  nordrheinWestfalen: {
+  NordrheinWestfalen: {
     name: "Nordrhein-Westfalen",
     insuranceRate: 0.13,
   },
-  rheinlandPfalz: {
+  RheinlandPfalz: {
     name: "Rheinland-Pfalz",
     insuranceRate: 0.12,
   },
-  saarland: {
+  Saarland: {
     name: "Saarland",
     insuranceRate: 0.11,
   },
-  sachsen: {
+  Sachsen: {
     name: "Sachsen",
     insuranceRate: 0.1,
   },
-  sachsenAnhalt: {
+  SachsenAnhalt: {
     name: "Sachsen-Anhalt",
     insuranceRate: 0.11,
   },
-  schleswigHolstein: {
+  SchleswigHolstein: {
     name: "Schleswig-Holstein",
     insuranceRate: 0.1,
   },
-  thueringen: {
+  Thueringen: {
     name: "Thüringen",
     insuranceRate: 0.11,
   },

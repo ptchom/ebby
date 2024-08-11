@@ -26,7 +26,7 @@ export const BundeslandSelect: FC<BundeslandSelectProps> = ({ control }) => {
                 </option>
               ))}
             </select>
-            {/*  Ошибки*/}
+            {/* Ошибки */}
             {fieldState.error && (
               <span className="text-sm text-red-500">
                 {fieldState.error.message}
