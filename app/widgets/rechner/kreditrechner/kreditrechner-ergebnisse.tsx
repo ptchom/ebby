@@ -19,7 +19,7 @@ export function KreditrechnerErgebnisse(
 
   return isValid ? (
     <div className="flex flex-col gap-4 text-base font-medium md:text-lg lg:text-xl">
-      <label htmlFor="monthlyPayment" className="block ">
+      <label htmlFor="monthlyPayment" className="block">
         Das zahlen Sie monatlich an die Bank zurück, plus Versicherung:
       </label>
       <div className="w-fit border-2 border-red-500 p-4">

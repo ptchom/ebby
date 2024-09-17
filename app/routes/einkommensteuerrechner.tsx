@@ -1,6 +1,5 @@
-import { EinkommensteuerRechnerForm } from "app/widgets/rechner/einkommen-steuerrechner-form";
-
 import type { MetaFunction } from "@remix-run/node";
+import { EinkommensteuerRechnerForm } from "app/widgets/rechner/einkommen-steuerrechner-form";
 
 import { WEBSITE_API } from "~/shared/config/api";
 import { metatags } from "~/shared/seo/meta-semantic";

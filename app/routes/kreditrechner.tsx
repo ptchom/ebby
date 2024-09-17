@@ -1,8 +1,8 @@
 import type { MetaFunction } from "@remix-run/node";
 
 import {
-  loanCalculatorContent,
   LoanCalculatorForm,
+  loanCalculatorContent,
   loanCalculatorMeta,
 } from "~/widgets/rechner/kreditrechner";
 

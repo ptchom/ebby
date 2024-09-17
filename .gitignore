@@ -8,3 +8,9 @@ node_modules
 devtools
 test-results
 playwright-report
+vite.config.ts.*
+/coverage
+.eslintcache
+
+# dont ignore .env.example
+!*.example

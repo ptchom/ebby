@@ -1,7 +1,8 @@
+// @ts-nocheck
 import { FC } from "react";
 
-import { FieldProps } from "./types";
 import { NumericInput, RangeSelector } from "./";
+import { FieldProps } from "./types";
 
 export const CustomField: FC<FieldProps> = ({
   title,

@@ -13,7 +13,6 @@ import {
 import { Aside } from "~/entities/aside";
 import { Footer } from "~/entities/footer";
 import { Header } from "~/entities/header";
-
 import stylesheet from "~/tailwind.css?url";
 
 export const links: LinksFunction = () => [
@@ -40,7 +39,7 @@ export function Layout({ children }: { children: ReactNode }) {
         <main className="mainBorder md:col-span-9 md:col-start-4 xl:col-start-5 xl:col-end-12">
           {children}
         </main>
-        <footer className="col-start-1 col-end-13  rounded-lg text-white xl:col-start-3 xl:col-end-11">
+        <footer className="col-start-1 col-end-13 rounded-lg text-white xl:col-start-3 xl:col-end-11">
           <Footer />
         </footer>
         <ScrollRestoration />

@@ -4,6 +4,7 @@ import { devices } from "@playwright/test";
 const PORT = process.env.PORT || 5173;
 
 const baseURL = `http://localhost:${PORT}`;
+// const baseURL = `http://localhost:5173`;
 
 /**
  * Read environment variables from file.

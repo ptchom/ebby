@@ -1,7 +1,6 @@
 import { JSX, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-import { FormDataInputs, LohnPeriod, ResultsDisplayProps } from "./type";
 import {
   BundeslandSelect,
   EinkommenInput,
@@ -10,6 +9,7 @@ import {
   SteuerklasseButtonRow,
   ToggleSwitchKirchensteuer,
 } from "./";
+import { FormDataInputs, LohnPeriod, ResultsDisplayProps } from "./type";
 
 export const BruttoNettoForm = (): JSX.Element => {
   const { control, watch, handleSubmit, setValue } = useForm<FormDataInputs>({

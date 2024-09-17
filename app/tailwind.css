@@ -7,12 +7,12 @@
   body {
     @apply mx-auto max-w-screen-xl;
     /*@apply text-xl;*/
-    @apply flex flex-col md:grid md:grid-cols-12 md:gap-1 md:min-h-dvh md:grid-rows-[auto,1fr,auto] lg:gap-2 xl:gap-3 2xl:gap-4;
-    @apply font-system text-pretty;
+    @apply flex flex-col md:grid md:min-h-dvh md:grid-cols-12 md:grid-rows-[auto,1fr,auto] md:gap-1 lg:gap-2 xl:gap-3 2xl:gap-4;
+    @apply text-pretty font-system;
   }
 
   header {
-    @apply mb-1 flex items-center justify-between gap-4 p-2 md:p-4 md:justify-center;
+    @apply mb-1 flex items-center justify-between gap-4 p-2 md:justify-center md:p-4;
   }
 
   h1 {
@@ -36,7 +36,7 @@
   h4,
   h5,
   h6 {
-    @apply text-teal-800 py-2 font-bold;
+    @apply py-2 font-bold text-teal-800;
   }
 
   main {
@@ -53,7 +53,7 @@
   }
 
   a {
-    @apply underline py-2 inline-block;
+    @apply inline-block py-2 underline;
   }
 
   a:hover {
@@ -81,14 +81,14 @@
   }
 
   input {
-    @apply text-right w-28 block border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-teal-500;
+    @apply block w-28 rounded-md border border-gray-300 text-right placeholder-gray-400 shadow-sm focus:border-teal-500 focus:outline-none focus:ring-blue-500;
   }
 }
 
 @layer components {
   /*bg with svg*/
   body {
-    @apply bg-repeat w-full h-full;
+    @apply h-full w-full bg-repeat;
     /*@apply heropattern-graphpaper-gray-300;*/
     @apply bg-svg-background heropattern-topography-gray-300;
     /*@apply heropattern-overlappingdiamonds-gray-300;*/
@@ -114,8 +114,8 @@
 @layer utilities {
   .btnrechnen {
     @apply bg-red-800 hover:bg-red-500 active:bg-red-600;
-    @apply focus:ring-red-600 focus:outline-none focus:ring-2 focus:ring-opacity-50;
-    @apply text-white font-bold py-1 px-2 rounded sm:min-w-48 w-48;
+    @apply focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-opacity-50;
+    @apply w-48 rounded px-2 py-1 font-bold text-white sm:min-w-48;
   }
 
   .footerLink {
@@ -131,6 +131,6 @@
   }
 
   .grid-form {
-    @apply grid grid-cols-3 gap-1 mx-auto mb-5 p-1 md:p-5 rounded-lg shadow-xl sm:text-xl;
+    @apply mx-auto mb-5 grid grid-cols-3 gap-1 rounded-lg p-1 shadow-xl sm:text-xl md:p-5;
   }
 }

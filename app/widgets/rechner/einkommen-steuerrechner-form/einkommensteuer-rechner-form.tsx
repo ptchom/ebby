@@ -96,7 +96,7 @@ export const EinkommensteuerRechnerForm = () => {
         <select
           {...register("churchTax")}
           id="churchTax"
-          className=" rounded-md border bg-white px-1 text-gray-800 outline-none"
+          className="rounded-md border bg-white px-1 text-gray-800 outline-none"
         >
           <option value="0">Kein Kirchensteuer</option>
           <option value="8">8 % (Baden-Württemberg und Bayern)</option>

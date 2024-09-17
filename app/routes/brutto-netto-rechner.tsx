@@ -1,7 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 
 import { ImAufbau } from "~/entities/aside/im-aufbau";
-
 import {
   BruttoNettoForm,
   contentBruttoNettoRechner,

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Controller } from "react-hook-form";
 
-import { EinkommenInputProps, LohnPeriod } from "./type"; // Импорт интерфейсов
+import { EinkommenInputProps, LohnPeriod } from "./type";
 
 export const EinkommenInput: FC<EinkommenInputProps> = ({
   control,
