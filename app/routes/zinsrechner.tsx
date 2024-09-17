@@ -13,9 +13,9 @@ export const meta: MetaFunction = () => {
 export default function Zinsrechner(): ReactElement {
   return (
     <>
-      <header>
+      <div>
         <h4 className="text-center">Zinsrechner für einmalige Geldanlage</h4>
-      </header>
+      </div>
       <ZinsrechnerForm />
       <article
         dangerouslySetInnerHTML={{ __html: contentZinsrechner.content }}
