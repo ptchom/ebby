@@ -1,4 +1,3 @@
-// root.tsx
 import { ReactNode } from "react";
 
 import type { LinksFunction } from "@remix-run/node";
@@ -10,9 +9,9 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
-import { Aside } from "~/entities/aside";
 import { Footer } from "~/entities/footer";
 import { Header } from "~/entities/header";
+import { isGoogleAdvertising } from "~/shared/config/config";
 import stylesheet from "~/tailwind.css?url";
 
 export const links: LinksFunction = () => [
@@ -33,9 +32,6 @@ export function Layout({ children }: { children: ReactNode }) {
         <header className="mainBorder col-span-12 xl:col-span-8 xl:col-start-3">
           <Header />
         </header>
-        <aside className="mainBorder hidden md:col-start-1 md:col-end-4 md:block lg:col-start-1 lg:col-end-4 xl:col-start-2 xl:col-end-5">
-          <Aside />
-        </aside>
         <main className="mainBorder md:col-span-9 md:col-start-4 xl:col-start-5 xl:col-end-12">
           {children}
         </main>
@@ -70,11 +66,13 @@ function GoogleScripts() {
           `,
         }}
       />
-      <script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0567076807196284"
-        crossOrigin="anonymous"
-      ></script>
+      {isGoogleAdvertising && (
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0567076807196284"
+          crossOrigin="anonymous"
+        ></script>
+      )}
     </>
   );
 }

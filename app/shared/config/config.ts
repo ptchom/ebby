@@ -8,3 +8,5 @@ export const googleTagManager: string = process.env
   .NEXT_PUBLIC_GOOGLE_TAG_MANAGER as string;
 export const googleAdsense: string =
   (process.env.NEXT_PUBLIC_GOOGLE_ADSENSE as string) || "test";
+
+export const isGoogleAdvertising: boolean = false;

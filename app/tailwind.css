@@ -6,13 +6,18 @@
 @layer base {
   body {
     @apply mx-auto max-w-screen-xl;
-    /*@apply text-xl;*/
-    @apply flex flex-col md:grid md:min-h-dvh md:grid-cols-12 md:grid-rows-[auto,1fr,auto] md:gap-1 lg:gap-2 xl:gap-3 2xl:gap-4;
+    @apply flex h-screen flex-col;
     @apply text-pretty font-system;
+    @apply bg-svg-background heropattern-topography-gray-300;
   }
 
   header {
-    @apply mb-1 flex items-center justify-between gap-4 p-2 md:justify-center md:p-4;
+    @apply sticky top-0 mb-1 flex justify-center p-1;
+    @apply bg-svg-background heropattern-topography-gray-300;
+  }
+
+  footer {
+    @apply sticky bottom-0 bg-bg-footer heropattern-topography-white/10;
   }
 
   h1 {
@@ -68,16 +73,8 @@
     @apply underline-offset-4;
   }
 
-  footer {
-    @apply p-0.5;
-  }
-
   p {
     @apply my-1;
-  }
-
-  form {
-    /*@apply grid grid-cols-3 gap-1 mx-auto mb-5 p-1 md:p-5 rounded-lg shadow-xl sm:text-xl;*/
   }
 
   input {
@@ -86,21 +83,9 @@
 }
 
 @layer components {
-  /*bg with svg*/
-  body {
-    @apply h-full w-full bg-repeat;
-    /*@apply heropattern-graphpaper-gray-300;*/
-    @apply bg-svg-background heropattern-topography-gray-300;
-    /*@apply heropattern-overlappingdiamonds-gray-300;*/
-  }
-
   aside,
   main {
     @apply bg-svg-background bg-opacity-60;
-  }
-
-  footer {
-    @apply bg-bg-footer heropattern-topography-white/10;
   }
 
   form {
@@ -132,5 +117,8 @@
 
   .grid-form {
     @apply mx-auto mb-5 grid grid-cols-3 gap-1 rounded-lg p-1 shadow-xl sm:text-xl md:p-5;
+  }
+  .inputText {
+    @apply font-semibold text-pink-500;
   }
 }

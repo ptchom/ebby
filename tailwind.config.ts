@@ -17,5 +17,8 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-hero-patterns")],
+  plugins: [
+    require("tailwindcss-hero-patterns"),
+    require("@tailwindcss/forms"),
+  ],
 } satisfies Config;

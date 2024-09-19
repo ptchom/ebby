@@ -6,7 +6,6 @@ export const Aside = (): ReactElement => {
   return (
     <>
       <Navigation />
-      {/*<GaBlockUno />*/}
     </>
   );
 };
