@@ -118,4 +118,7 @@
   .grid-form {
     @apply mx-auto mb-5 grid grid-cols-3 gap-1 rounded-lg p-1 shadow-xl sm:text-xl md:p-5;
   }
+  .inputText {
+    @apply font-semibold text-pink-500;
+  }
 }

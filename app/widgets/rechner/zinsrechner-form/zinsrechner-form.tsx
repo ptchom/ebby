@@ -77,7 +77,7 @@ export const ZinsrechnerForm = () => {
           type="number"
           defaultValue={initialCapital}
           onChange={handleChange}
-          className="pr-0.5"
+          className="inputText rounded pr-0.5"
         />
         <span className="">€</span>
       </div>
@@ -94,7 +94,7 @@ export const ZinsrechnerForm = () => {
           step="0.001"
           defaultValue={interestRate}
           onChange={handleChange}
-          className="w-28 rounded-md border pr-0.5 text-right"
+          className="inputText w-28 rounded-md border pr-0.5 text-right"
         />
         <span className="">% p.a.</span>
       </div>
@@ -172,6 +172,7 @@ export const ZinsrechnerForm = () => {
           defaultValue={finalCapital}
           type="number"
           className="w-44 rounded-md border pr-0.5 text-right text-2xl font-bold text-red-800"
+          // className="rounded text-pink-500"
         />
         <span className="flex self-center text-xl">€</span>
       </div>
